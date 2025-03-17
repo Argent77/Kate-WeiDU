@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd"
+[
+  <!ENTITY startinline "&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;">
+  <!ENTITY endinline "&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;">
+]>
+<language
+  name="WeiDU TP2"
+  section="Scripts"
+  extensions="*.tp2;*.Tp2;*.TP2;*.tpa;*.Tpa;*.TPA;*.tph;*.Tph;*.TPH;*.tpp;*.Tpp;*.TPP;"
+  version="1"
+  kateversion="5.79"
+  author="Argent77 (https://github.com/Argent77/Kate-WeiDU)"
+  license="MIT"
+  indenter="normal">
+  <highlighting>
+    <list name="action">
+      <item>ABORT</item>
+      <item>ACTION_BASH_FOR</item>
+      <item>ACTION_CLEAR_ARRAY</item>
+      <item>ACTION_DEFINE_ARRAY</item>
+      <item>ACTION_DEFINE_ASSOCIATIVE_ARRAY</item>
+      <item>ACTION_FOR_EACH</item>
+      <item>ACTION_GET_STRREF</item>
+      <item>ACTION_GET_STRREF_F</item>
+      <item>ACTION_GET_STRREF_FS</item>
+      <item>ACTION_GET_STRREF_S</item>
+      <item>ACTION_IF</item>
+      <item>ACTION_INCLUDE</item>
+      <item>ACTION_MATCH</item>
+      <item>ACTION_PHP_EACH</item>
+      <item>ACTION_READLN</item>
+      <item>ACTION_REINCLUDE</item>
+      <item>ACTION_RERAISE</item>
+      <item>ACTION_SORT_ARRAY_INDICES</item>
+      <item>ACTION_TIME</item>
+      <item>ACTION_TO_LOWER</item>
+      <item>ACTION_TO_UPPER</item>
+      <item>ACTION_TRY</item>
+      <item>ADD_AREA_TYPE</item>
+      <item>ADD_JOURNAL</item>
+      <item>ADD_KIT</item>
+      <item>ADD_MUSIC</item>
+      <item>ADD_PROJECTILE</item>
+      <item>ADD_SCHOOL</item>
+      <item>ADD_SECTYPE</item>
+      <item>ADD_SPELL</item>
+      <item>ALTER_TLK</item>
+      <item>ALTER_TLK_LIST</item>
+      <item>ALTER_TLK_RANGE</item>
+      <item>APPEND</item>
+      <item>APPEND_COL</item>
+      <item>APPEND_COL_OUTER</item>
+      <item>APPEND_OUTER</item>
+      <item>AT_EXIT</item>
+      <item>AT_INTERACTIVE_EXIT</item>
+      <item>AT_INTERACTIVE_NOW</item>
+      <item>AT_INTERACTIVE_UNINSTALL</item>
+      <item>AT_INTERACTIVE_UNINSTALL_EXIT</item>
+      <item>AT_NOW</item>
+      <item>AT_UNINSTALL</item>
+      <item>AT_UNINSTALL_EXIT</item>
+      <item>BIFF</item>
+      <item>BRANCH</item>
+      <item>CLEAR_ARRAYS</item>
+      <item>CLEAR_CODES</item>
+      <item>CLEAR_EVERYTHING</item>
+      <item>CLEAR_IDS_MAP</item>
+      <item>CLEAR_INLINED</item>
+      <item>CLEAR_MEMORY</item>
+      <item>COMPILE</item>
+      <item>COPY</item>
+      <item>COPY_ALL_GAM_FILES</item>
+      <item>COPY_EXISTING</item>
+      <item>COPY_EXISTING_REGEXP</item>
+      <item>COPY_KIT</item>
+      <item>COPY_LARGE</item>
+      <item>COPY_RANDOM</item>
+      <item>CREATE</item>
+      <item>DECOMPRESS_BIFF</item>
+      <item>DEFINE_ACTION_FUNCTION</item>
+      <item>DEFINE_ACTION_MACRO</item>
+      <item>DEFINE_DIMORPHIC_FUNCTION</item>
+      <item>DEFINE_PATCH_FUNCTION</item>
+      <item>DEFINE_PATCH_MACRO</item>
+      <item>DELETE</item>
+      <item>DISABLE_FROM_KEY</item>
+      <item>EXTEND_BOTTOM</item>
+      <item>EXTEND_BOTTOM_REGEXP</item>
+      <item>EXTEND_TOP</item>
+      <item>EXTEND_TOP_REGEXP</item>
+      <item>FAIL</item>
+      <item>FORBID_FILE</item>
+      <item>GET_DIRECTORY_ARRAY</item>
+      <item>GET_FILE_ARRAY</item>
+      <item>IF_FILE_EXISTS</item>
+      <item>INCLUDE</item>
+      <item>LAF</item>
+      <item>LAM</item>
+      <item>LAUNCH_ACTION_FUNCTION</item>
+      <item>LAUNCH_ACTION_MACRO</item>
+      <item>LOAD_TRA</item>
+      <item>LOG</item>
+      <item>MAKE_BIFF</item>
+      <item>MKDIR</item>
+      <item>MOVE</item>
+      <item>OUTER_FOR</item>
+      <item>OUTER_INNER_PATCH</item>
+      <item>OUTER_INNER_PATCH_SAVE</item>
+      <item>OUTER_PATCH</item>
+      <item>OUTER_PATCH_SAVE</item>
+      <item>OUTER_SET</item>
+      <item>OUTER_SNPRINT</item>
+      <item>OUTER_SPRINT</item>
+      <item>OUTER_TEXT_SPRINT</item>
+      <item>OUTER_WHILE</item>
+      <item>PRINT</item>
+      <item>RANDOM_SEED</item>
+      <item>REINCLUDE</item>
+      <item>REQUIRE_FILE</item>
+      <item>SILENT</item>
+      <item>STRING_SET</item>
+      <item>STRING_SET_EVALUATE</item>
+      <item>STRING_SET_RANGE</item>
+      <item>UNINSTALL</item>
+      <item>VERBOSE</item>
+      <item>WARN</item>
+      <item>WITH_SCOPE</item>
+      <item>WITH_TRA</item>
+    </list>
+
+    <list name="patch">
+      <item>ADD_CRE_ITEM</item>
+      <item>ADD_GAME_NPC</item>
+      <item>ADD_GAM_NPC</item>
+      <item>ADD_KNOWN_SPELL</item>
+      <item>ADD_MAP_NOTE</item>
+      <item>ADD_MEMORIZED_SPELL</item>
+      <item>ADD_STORE_ITEM</item>
+      <item>APPEND_FILE</item>
+      <item>APPEND_FILE_EVALUATE</item>
+      <item>APPLY_BCS_PATCH</item>
+      <item>APPLY_BCS_PATCH_OR_COPY</item>
+      <item>A_B_P</item>
+      <item>CLEAR_ARRAY</item>
+      <item>COMPILE_BAF_TO_BCS</item>
+      <item>COMPILE_D_TO_DLG</item>
+      <item>COMPRESS_INTO_FILE</item>
+      <item>COMPRESS_INTO_VAR</item>
+      <item>COMPRESS_REPLACE_FILE</item>
+      <item>COUNT_2DA_COLS</item>
+      <item>COUNT_2DA_ROWS</item>
+      <item>COUNT_REGEXP_INSTANCES</item>
+      <item>DECOMPILE_AND_PATCH</item>
+      <item>DECOMPILE_BCS_TO_BAF</item>
+      <item>DECOMPILE_DLG_TO_D</item>
+      <item>DECOMPRESS_INTO_FILE</item>
+      <item>DECOMPRESS_INTO_VAR</item>
+      <item>DECOMPRESS_REPLACE_FILE</item>
+      <item>DEFINE_ARRAY</item>
+      <item>DEFINE_ASSOCIATIVE_ARRAY</item>
+      <item>DELETE_BYTES</item>
+      <item>EDIT_SAV_FILE</item>
+      <item>EVAL</item>
+      <item>EVALUATE_BUFFER</item>
+      <item>EVALUATE_BUFFER_SPECIAL</item>
+      <item>EXTEND_MOS</item>
+      <item>FOR</item>
+      <item>GET_OFFSET_ARRAY</item>
+      <item>GET_OFFSET_ARRAY2</item>
+      <item>GET_STRREF</item>
+      <item>GET_STRREF_F</item>
+      <item>GET_STRREF_FS</item>
+      <item>GET_STRREF_S</item>
+      <item>INNER_ACTION</item>
+      <item>INNER_PATCH</item>
+      <item>INNER_PATCH_FILE</item>
+      <item>INNER_PATCH_SAVE</item>
+      <item>INSERT_2DA_ROW</item>
+      <item>INSERT_BYTES</item>
+      <item>INSERT_FILE</item>
+      <item>LAUNCH_PATCH_FUNCTION</item>
+      <item>LAUNCH_PATCH_MACRO</item>
+      <item>LOCAL_SET</item>
+      <item>LOCAL_SPRINT</item>
+      <item>LOCAL_TEXT_SPRINT</item>
+      <item>LOOKUP_IDS_SYMBOL_OF_INT</item>
+      <item>LPF</item>
+      <item>LPM</item>
+      <item>PATCH_ABORT</item>
+      <item>PATCH_BASH_FOR</item>
+      <item>PATCH_CLEAR_ARRAY</item>
+      <item>PATCH_DEFINE_ARRAY</item>
+      <item>PATCH_DEFINE_ASSOCIATIVE_ARRAY</item>
+      <item>PATCH_FAIL</item>
+      <item>PATCH_FOR_EACH</item>
+      <item>PATCH_GAM</item>
+      <item>PATCH_IF</item>
+      <item>PATCH_INCLUDE</item>
+      <item>PATCH_LOG</item>
+      <item>PATCH_MATCH</item>
+      <item>PATCH_PHP_EACH</item>
+      <item>PATCH_PRINT</item>
+      <item>PATCH_RANDOM_SEED</item>
+      <item>PATCH_READLN</item>
+      <item>PATCH_REINCLUDE</item>
+      <item>PATCH_RERAISE</item>
+      <item>PATCH_SILENT</item>
+      <item>PATCH_TIME</item>
+      <item>PATCH_TRY</item>
+      <item>PATCH_VERBOSE</item>
+      <item>PATCH_WARN</item>
+      <item>PATCH_WITH_SCOPE</item>
+      <item>PATCH_WITH_TRA</item>
+      <item>PHP_EACH</item>
+      <item>PRETTY_PRINT_2DA</item>
+      <item>QUOTE</item>
+      <item>READ_2DA_ENTRIES_NOW</item>
+      <item>READ_2DA_ENTRY</item>
+      <item>READ_2DA_ENTRY_FORMER</item>
+      <item>READ_ASCII</item>
+      <item>READ_BYTE</item>
+      <item>READ_LONG</item>
+      <item>READ_SBYTE</item>
+      <item>READ_SHORT</item>
+      <item>READ_SLONG</item>
+      <item>READ_SSHORT</item>
+      <item>READ_STRREF</item>
+      <item>READ_STRREF_F</item>
+      <item>READ_STRREF_FS</item>
+      <item>READ_STRREF_S</item>
+      <item>REBUILD_CRE_FILE</item>
+      <item>REFACTOR_BAF_TRIGGER</item>
+      <item>REFACTOR_D_TRIGGER</item>
+      <item>REFACTOR_TRIGGER</item>
+      <item>REMOVE_2DA_ROW</item>
+      <item>REMOVE_CRE_EFFECTS</item>
+      <item>REMOVE_CRE_ITEM</item>
+      <item>REMOVE_CRE_ITEMS</item>
+      <item>REMOVE_KNOWN_SPELL</item>
+      <item>REMOVE_KNOWN_SPELLS</item>
+      <item>REMOVE_MEMORIZED_SPELL</item>
+      <item>REMOVE_MEMORIZED_SPELLS</item>
+      <item>REMOVE_STORE_ITEM</item>
+      <item>REPLACE</item>
+      <item>REPLACE_BCS_BLOCK</item>
+      <item>REPLACE_BCS_BLOCK_REGEXP</item>
+      <item>REPLACE_CRE_ITEM</item>
+      <item>REPLACE_EVALUATE</item>
+      <item>REPLACE_TEXTUALLY</item>
+      <item>R_B_B</item>
+      <item>R_B_B_RE</item>
+      <item>SAY</item>
+      <item>SAY_EVALUATED</item>
+      <item>SET</item>
+      <item>SET_2DA_ENTRIES_NOW</item>
+      <item>SET_2DA_ENTRY</item>
+      <item>SET_2DA_ENTRY_LATER</item>
+      <item>SET_BG2_PROFICIENCY</item>
+      <item>SET_IDS_SYMBOL_OF_INT</item>
+      <item>SNPRINT</item>
+      <item>SORT_ARRAY_INDICES</item>
+      <item>SOURCE_BIFF</item>
+      <item>SPACES</item>
+      <item>SPRINT</item>
+      <item>SPRINTF</item>
+      <item>TEXT_SPRINT</item>
+      <item>TO_LOWER</item>
+      <item>TO_UPPER</item>
+      <item>WHILE</item>
+      <item>WRITE_ASCII</item>
+      <item>WRITE_ASCIIE</item>
+      <item>WRITE_ASCIIL</item>
+      <item>WRITE_ASCIIT</item>
+      <item>WRITE_ASCII_LIST</item>
+      <item>WRITE_ASCII_TERMINATE</item>
+      <item>WRITE_ASCII_TERMINATED</item>
+      <item>WRITE_BYTE</item>
+      <item>WRITE_EVALUATED_ASCII</item>
+      <item>WRITE_FILE</item>
+      <item>WRITE_LONG</item>
+      <item>WRITE_SHORT</item>
+    </list>
+
+    <list name="command">
+      <item>ABS</item>
+      <item>ALLOW_MISSING</item>
+      <item>AND</item>
+      <item>ASK_EVERY_COMPONENT</item>
+      <item>AUTHOR</item>
+      <item>AUTO_EVAL_STRINGS</item>
+      <item>AUTO_TRA</item>
+      <item>BACKUP</item>
+      <item>BAND</item>
+      <item>BASR</item>
+      <item>BIFF_IS_COMPRESSED</item>
+      <item>BLSL</item>
+      <item>BLSR</item>
+      <item>BNOT</item>
+      <item>BOR</item>
+      <item>BUFFER_LENGTH</item>
+      <item>BXOR</item>
+      <item>BYTE_AT</item>
+      <item>DEPRECATED</item>
+      <item>DESIGNATED</item>
+      <item>DIRECTORY_EXISTS</item>
+      <item>ENGINE_IS</item>
+      <item>EVALUATE_BUFFER</item>
+      <item>FILE_CONTAINS</item>
+      <item>FILE_CONTAINS_EVALUATED</item>
+      <item>FILE_EXISTS</item>
+      <item>FILE_EXISTS_IN_GAME</item>
+      <item>FILE_IS_IN_COMPRESSED_BIF</item>
+      <item>FILE_IS_IN_COMPRESSED_BIFF</item>
+      <item>FILE_MD5</item>
+      <item>FILE_SIZE</item>
+      <item>FORBID_COMPONENT</item>
+      <item>FORCED_SUBCOMPONENT</item>
+      <item>GAME_INCLUDES</item>
+      <item>GAME_IS</item>
+      <item>GROUP</item>
+      <item>IDS_OF_SYMBOL</item>
+      <item>ID_OF_LABEL</item>
+      <item>INDEX</item>
+      <item>INDEX_BUFFER</item>
+      <item>INSTALL_BY_DEFAULT</item>
+      <item>INSTALL_ORDER</item>
+      <item>IS_AN_INT</item>
+      <item>IS_SILENT</item>
+      <item>LABEL</item>
+      <item>LANGUAGE</item>
+      <item>LONG_AT</item>
+      <item>MENU_STYLE</item>
+      <item>METADATA</item>
+      <item>MODDER</item>
+      <item>MODULO</item>
+      <item>MOD_IS_INSTALLED</item>
+      <item>NEXT_STRREF</item>
+      <item>NO_IF_EVAL_BUG</item>
+      <item>NO_LOG_RECORD</item>
+      <item>NOT</item>
+      <item>OR</item>
+      <item>QUICK_MENU</item>
+      <item>RANDOM</item>
+      <item>README</item>
+      <item>REM</item>
+      <item>REQUIRE_COMPONENT</item>
+      <item>REQUIRE_PREDICATE</item>
+      <item>RESOLVE_STR_REF</item>
+      <item>RESOURCE_CONTAINS</item>
+      <item>RINDEX</item>
+      <item>RINDEX_BUFFER</item>
+      <item>SBYTE_AT</item>
+      <item>SCRIPT_STYLE</item>
+      <item>SHORT_AT</item>
+      <item>SIZE_OF_FILE</item>
+      <item>SLONG_AT</item>
+      <item>SSHORT_AT</item>
+      <item>STATE_WHICH_SAYS</item>
+      <item>STRING_COMPARE</item>
+      <item>STRING_COMPARE_CASE</item>
+      <item>STRING_COMPARE_REGEXP</item>
+      <item>STRING_CONTAINS_REGEXP</item>
+      <item>STRING_EQUAL</item>
+      <item>STRING_EQUAL_CASE</item>
+      <item>STRING_LENGTH</item>
+      <item>STRING_MATCHES_REGEXP</item>
+      <item>STR_CMP</item>
+      <item>STR_EQ</item>
+      <item>SUBCOMPONENT</item>
+      <item>SUB_COMPONENT</item>
+      <item>SUPPORT</item>
+      <item>TRA_ENTRY_EXISTS</item>
+      <item>UNDEFINED</item>
+      <item>UNINSTALL_ORDER</item>
+      <item>VALID_SCRIPT_ACTIONS</item>
+      <item>VALID_SCRIPT_TRIGGERS</item>
+      <item>VARIABLE_IS_SET</item>
+      <item>VERSION</item>
+    </list>
+
+    <list name="flag">
+      <item>ADD_IF_MISSING</item>
+      <item>AFTER</item>
+      <item>ALWAYS</item>
+      <item>ANY</item>
+      <item>AS</item>
+      <item>AT</item>
+      <item>BEFORE</item>
+      <item>BEGIN</item>
+      <item>BUT_ONLY</item>
+      <item>BUT_ONLY_IF_IT_CHANGES</item>
+      <item>CASE_INSENSITIVE</item>
+      <item>CASE_SENSITIVE</item>
+      <item>COPY_TRANS</item>
+      <item>COPY_TRANS_LATE</item>
+      <item>DEFAULT</item>
+      <item>ELSE</item>
+      <item>END</item>
+      <item>EQUIP</item>
+      <item>EVALUATE_REGEXP</item>
+      <item>EXACT</item>
+      <item>EXACT_MATCH</item>
+      <item>EXISTING</item>
+      <item>EXTERN</item>
+      <item>FIRST</item>
+      <item>GLOB</item>
+      <item>IF</item>
+      <item>IF_EXISTING</item>
+      <item>IF_EXISTS</item>
+      <item>IF_SIZE_IS</item>
+      <item>IN</item>
+      <item>INT_VAR</item>
+      <item>I_S_I</item>
+      <item>KEEP_CRLF</item>
+      <item>LAST</item>
+      <item>LEXICOGRAPHICALLY</item>
+      <item>MANAGED</item>
+      <item>NOGLOB</item>
+      <item>NOMOVE</item>
+      <item>NULL</item>
+      <item>NUMERICALLY</item>
+      <item>ON_DISABLE</item>
+      <item>ON_MISMATCH</item>
+      <item>RESPONSE</item>
+      <item>RET</item>
+      <item>RET_ARRAY</item>
+      <item>SAFE</item>
+      <item>STR_VAR</item>
+      <item>TEXT</item>
+      <item>THEN</item>
+      <item>TITLE</item>
+      <item>TWOHANDED</item>
+      <item>UNLESS</item>
+      <item>USING</item>
+      <item>WAVEFILE</item>
+      <item>WEIGHT</item>
+      <item>WHEN</item>
+      <item>WITH</item>
+    </list>
+
+    <list name="constant">
+      <item>AREA_CITY</item>
+      <item>AREA_DAY</item>
+      <item>AREA_DUNGEON</item>
+      <item>AREA_FOREST</item>
+      <item>AREA_NIGHT</item>
+      <item>ATTACK1</item>
+      <item>ATTACK2</item>
+      <item>ATTACK3</item>
+      <item>ATTACK4</item>
+      <item>BATTLE_CRY1</item>
+      <item>BATTLE_CRY2</item>
+      <item>BATTLE_CRY3</item>
+      <item>BATTLE_CRY4</item>
+      <item>BATTLE_CRY5</item>
+      <item>BIO</item>
+      <item>BORED</item>
+      <item>COMPLIMENT1</item>
+      <item>COMPLIMENT2</item>
+      <item>COMPLIMENT3</item>
+      <item>CRITICAL_HIT</item>
+      <item>CRITICAL_MISS</item>
+      <item>DAMAGE</item>
+      <item>DESC</item>
+      <item>DIALOGUE_DEFAULT</item>
+      <item>DIALOGUE_HOSTILE</item>
+      <item>DYING</item>
+      <item>EXISTANCE1</item>
+      <item>EXISTANCE2</item>
+      <item>EXISTANCE3</item>
+      <item>EXISTANCE4</item>
+      <item>EXISTANCE5</item>
+      <item>HAPPY</item>
+      <item>HURT</item>
+      <item>IDENTIFIED_DESC</item>
+      <item>INITIAL_MEETING</item>
+      <item>INSULT</item>
+      <item>INTERACTION1</item>
+      <item>INTERACTION2</item>
+      <item>INTERACTION3</item>
+      <item>INTERACTION4</item>
+      <item>INTERACTION5</item>
+      <item>INVENTORY_FULL</item>
+      <item>LEADER</item>
+      <item>MISCELLANEOUS</item>
+      <item>MORALE</item>
+      <item>NAME1</item>
+      <item>NAME2</item>
+      <item>PICKED_POCKET</item>
+      <item>REACT_TO_DIE_GENERAL</item>
+      <item>REACT_TO_DIE_SPECIFIC</item>
+      <item>RESPONSE_TO_COMPLIMENT2</item>
+      <item>RESPONSE_TO_COMPLIMENT3</item>
+      <item>RESPONSE_TO_INSULT1</item>
+      <item>RESPONSE_TO_INSULT2</item>
+      <item>RESPONSE_TO_INSULT3</item>
+      <item>SELECT_ACTION1</item>
+      <item>SELECT_ACTION2</item>
+      <item>SELECT_ACTION3</item>
+      <item>SELECT_ACTION4</item>
+      <item>SELECT_ACTION5</item>
+      <item>SELECT_ACTION6</item>
+      <item>SELECT_ACTION7</item>
+      <item>SELECT_COMMON1</item>
+      <item>SELECT_COMMON2</item>
+      <item>SELECT_COMMON3</item>
+      <item>SELECT_COMMON4</item>
+      <item>SELECT_COMMON5</item>
+      <item>SELECT_COMMON6</item>
+      <item>SELECT_RARE1</item>
+      <item>SELECT_RARE2</item>
+      <item>SPECIAL1</item>
+      <item>SPECIAL2</item>
+      <item>SPECIAL3</item>
+      <item>TARGET_IMMUNE</item>
+      <item>TIRED</item>
+      <item>UNHAPPY_ANNOYED</item>
+      <item>UNHAPPY_BREAKING</item>
+      <item>UNHAPPY_SERIOUS</item>
+      <item>UNHAPPY_BREAKING_POINT</item>
+      <item>UNIDENTIFIED_DESC</item>
+      <item>HIDDEN_IN_SHADOWS</item>
+      <item>SPELL_DISRUPTED</item>
+      <item>SET_A_TRAP</item>
+      <item>STORE_NAME</item>
+      <item>SCRIPT_OVERRIDE</item>
+      <item>SCRIPT_CLASS</item>
+      <item>SCRIPT_RACE</item>
+      <item>SCRIPT_GENERAL</item>
+      <item>SCRIPT_DEFAULT</item>
+      <item>DEATHVAR</item>
+      <item>DIALOG</item>
+      <item>AREA_SCRIPT</item>
+      <item>THIS</item>
+      <item>STHIS</item>
+      <item>WEIDU_ARCH</item>
+      <item>WEIDU_OS</item>
+      <item>COMPONENT_NUMBER</item>
+      <item>INTERACTIVE</item>
+      <item>TP2_AUTHOR</item>
+      <item>TP2_FILE_NAME</item>
+      <item>TP2_BASE_NAME</item>
+      <item>MOD_FOLDER</item>
+      <item>MOD_VERSION</item>
+      <item>WEIDU_EXECUTABLE</item>
+      <item>WEIDU_VER</item>
+      <item>BIT0</item>
+      <item>BIT1</item>
+      <item>BIT2</item>
+      <item>BIT3</item>
+      <item>BIT4</item>
+      <item>BIT5</item>
+      <item>BIT6</item>
+      <item>BIT7</item>
+      <item>BIT8</item>
+      <item>BIT9</item>
+      <item>BIT10</item>
+      <item>BIT11</item>
+      <item>BIT12</item>
+      <item>BIT13</item>
+      <item>BIT14</item>
+      <item>BIT15</item>
+      <item>BIT16</item>
+      <item>BIT17</item>
+      <item>BIT18</item>
+      <item>BIT19</item>
+      <item>BIT20</item>
+      <item>BIT21</item>
+      <item>BIT22</item>
+      <item>BIT23</item>
+      <item>BIT24</item>
+      <item>BIT25</item>
+      <item>BIT26</item>
+      <item>BIT27</item>
+      <item>BIT28</item>
+      <item>BIT29</item>
+      <item>BIT30</item>
+      <item>BIT31</item>
+      <item>WNL</item>
+      <item>MNL</item>
+      <item>LNL</item>
+      <item>TAB</item>
+      <item>REGISTRY_BG1_PATH</item>
+      <item>REGISTRY_BG2_PATH</item>
+      <item>REGISTRY_PST_PATH</item>
+      <item>REGISTRY_IWD1_PATH</item>
+      <item>REGISTRY_IWD2_PATH</item>
+      <item>USER_DIRECTORY</item>
+      <item>SAVE_DIRECTORY</item>
+      <item>MPSAVE_DIRECTORY</item>
+      <item>EE_LANGUAGE</item>
+      <item>internalKitName</item>
+      <item>internalMusicName</item>
+      <item>SAV_FILE</item>
+    </list>
+
+    <list name="function">
+      <item>ADD_AREA_ITEM</item>
+      <item>ADD_AREA_REGION</item>
+      <item>ADD_AREA_REGION_TRIGGER</item>
+      <item>ADD_CRE_EFFECT</item>
+      <item>ADD_CRE_ITEM_FLAGS</item>
+      <item>ADD_CRE_SCRIPT</item>
+      <item>ADD_ITEM_EFFECT</item>
+      <item>ADD_ITEM_EQEFFECT</item>
+      <item>ADD_SPELL_CFEFFECT</item>
+      <item>ADD_SPELL_EFFECT</item>
+      <item>ADD_STORE_CURE</item>
+      <item>ADD_STORE_DRINK</item>
+      <item>ADD_STORE_ITEM_EX</item>
+      <item>ADD_STORE_PURCHASE</item>
+      <item>ADD_WORLDMAP_LINKS</item>
+      <item>ALTER_AREA_ACTOR</item>
+      <item>ALTER_AREA_CONTAINER</item>
+      <item>ALTER_AREA_DOOR</item>
+      <item>ALTER_AREA_ENTRANCE</item>
+      <item>ALTER_AREA_REGION</item>
+      <item>ALTER_EFFECT</item>
+      <item>ALTER_ITEM_EFFECT</item>
+      <item>ALTER_ITEM_HEADER</item>
+      <item>ALTER_ITMSPL_EFFECT</item>
+      <item>ALTER_ITMSPL_HEADER</item>
+      <item>ALTER_SPELL_EFFECT</item>
+      <item>ALTER_SPELL_HEADER</item>
+      <item>BASE36</item>
+      <item>CLONE_EFFECT</item>
+      <item>DELETE_AREA_ITEM</item>
+      <item>DELETE_CRE_EFFECT</item>
+      <item>DELETE_CRE_ITEM</item>
+      <item>DELETE_EFFECT</item>
+      <item>DELETE_ITEM_EFFECT</item>
+      <item>DELETE_ITEM_EQEFFECT</item>
+      <item>DELETE_ITEM_HEADER</item>
+      <item>DELETE_ITMSPL_HEADER</item>
+      <item>DELETE_SPELL_EFFECT</item>
+      <item>DELETE_SPELL_HEADER</item>
+      <item>DELETE_STORE_ITEM</item>
+      <item>DELETE_WORLDMAP_LINKS</item>
+      <item>DIRECTORY_OF_FILESPEC</item>
+      <item>EXT_OF_FILESPEC</item>
+      <item>FILE_OF_FILESPEC</item>
+      <item>FIND_FREE_PVRZ_INDEX</item>
+      <item>FJ_CRE_EFF_V2</item>
+      <item>FJ_CRE_REINDEX</item>
+      <item>FJ_CRE_VALIDITY</item>
+      <item>GET_UNIQUE_FILE_NAME</item>
+      <item>HANDLE_AUDIO</item>
+      <item>HANDLE_CHARSETS</item>
+      <item>HANDLE_TILESETS</item>
+      <item>INSTALL_PVRZ</item>
+      <item>ITEM_EFFECT_TO_SPELL</item>
+      <item>NAME_NUM_OF_SPELL_RES</item>
+      <item>READ_SOUNDSET</item>
+      <item>REMOVE_CRE_ITEM_FLAGS</item>
+      <item>REMOVE_STORE_CURE</item>
+      <item>REMOVE_STORE_DRINK</item>
+      <item>REMOVE_STORE_ITEM_EX</item>
+      <item>REMOVE_STORE_PURCHASE</item>
+      <item>REPLACE_AREA_ITEM</item>
+      <item>REPLACE_STORE_ITEM</item>
+      <item>RES_NAME_OF_SPELL_NUM</item>
+      <item>RES_NUM_OF_SPELL_NAME</item>
+      <item>RES_OF_FILESPEC</item>
+      <item>SET_CRE_ITEM_FLAGS</item>
+      <item>SUBSTRING</item>
+      <item>T-CRE_EFF_V1</item>
+      <item>TB#ADD_SPELL</item>
+      <item>TB#ADD_SPELL_CHECK_MATCH</item>
+      <item>TB#ADD_SPELL_FIND_SLOT</item>
+      <item>TB#ADD_SPELL_GET_CODE</item>
+      <item>UPDATE_PVRZ_INDICES</item>
+      <item>WRITE_SOUNDSET</item>
+      <item>fj_are_structure</item>
+      <item>fl#WORLDMAP_LINKS#GET_SOURCE_NODE</item>
+      <item>fl#WORLDMAP_LINKS#PATCH_LINK</item>
+      <item>sc#addWmpAre</item>
+      <item>sc#fromNewAre</item>
+      <item>sc#savepatch</item>
+      <item>sc#toNewAre</item>
+      <item>tb#factorial</item>
+      <item>tb#fix_file_size</item>
+    </list>
+
+    <list name="diagnostic">
+      <item>BUG</item>
+      <item>DEBUG</item>
+      <item>ERROR</item>
+      <item>TODO</item>
+      <item>XXX</item>
+    </list>
+
+    <contexts>
+      <context name="Normal" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces context="#stay" />
+
+        <!-- Comments -->
+        <Detect2Chars attribute="Comment" context="Line_Comment" char="/" char1="/" />
+        <Detect2Chars attribute="Comment" context="Block_Comment" char="/" char1="*" beginRegion="Comment" />
+
+        <!-- Tra references -->
+        <RegExpr attribute="TraRef" context="#stay" String="@-?\d+" />
+
+        <!-- Numeric function parameters -->
+        <RegExpr attribute="Decimal" context="#stay" String="#-?\d+" />
+
+        <!-- Numbers -->
+        <RegExpr attribute="Bin" context="#stay" String="\b0[bB][01]+" />
+        <RegExpr attribute="Oct" context="#stay" String="\b0[oO][0-7]+" />
+        <HlCHex attribute="Hex" context="#stay" />
+        <Int attribute="Decimal" context="#stay" />
+
+        <!-- Strings -->
+        <AnyChar attribute="String" context="Match_String" String="&quot;~%" lookAhead="true" />
+
+        <!-- Inlined blocks -->
+        <StringDetect attribute="Inlined" context="Match_Inlined" String="&startinline;" />
+
+        <!-- Operators -->
+        <DetectChar attribute="Symbol" context="Expression_Group" char="(" />
+        <DetectChar attribute="Array" context="Array" char="$" />
+        <AnyChar attribute="Symbol" context="#stay" String="+-/*=|&amp;^`&lt;&gt;;,!?:" />
+
+        <!-- Keywords and predefined constants -->
+        <WordDetect attribute="Action" context="AutoTra" String="AUTO_TRA" />
+        <keyword attribute="Action" context="#stay" String="action" />
+        <keyword attribute="Patch" context="#stay" String="patch" />
+        <keyword attribute="Command" context="#stay" String="command" />
+        <keyword attribute="Flag" context="#stay" String="flag" />
+        <keyword attribute="Constant" context="#stay" String="constant" />
+        <keyword attribute="Function" context="#stay" String="function" />
+      </context>
+
+      <context name="Line_Comment" attribute="Comment" lineEndContext="#pop">
+        <DetectSpaces context="#stay" />
+        <keyword attribute="Diagnostic" context="#stay" String="diagnostic" />
+        <DetectIdentifier context="#stay" />
+      </context>
+
+      <context name="Block_Comment" attribute="Comment" lineEndContext="#stay">
+        <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment" />
+        <DetectSpaces context="#stay" />
+        <keyword attribute="Diagnostic" context="#stay" String="diagnostic" />
+        <DetectIdentifier context="#stay" />
+      </context>
+
+      <context name="Match_String" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectChar attribute="String" context="#pop!String_Quote" char="&quot;" />
+        <StringDetect attribute="String" context="#pop!String_5Tildes" String="~~~~~" />
+        <DetectChar attribute="String" context="#pop!String_Tilde" char="~" />
+        <DetectChar attribute="String" context="#pop!String_Percent" char="%" />
+      </context>
+
+      <context name="String_Quote" attribute="String" lineEndContext="#stay">
+        <DetectChar attribute="String" context="#pop" char="&quot;" />
+        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:&quot;]+?&gt;" />
+        <RegExpr attribute="Substitution" context="#stay" String="%[^ \t*?:&quot;]+?%" />
+      </context>
+
+      <context name="String_Tilde" attribute="String" lineEndContext="#stay">
+        <DetectChar attribute="String" context="#pop" char="~" />
+        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:~]+?&gt;" />
+        <RegExpr attribute="Substitution" context="#stay" String="%[^ \t*?:~]+?%" />
+      </context>
+
+      <context name="String_5Tildes" attribute="String" lineEndContext="#stay">
+        <StringDetect attribute="String" context="#pop" String="~~~~~" />
+        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:~]+?&gt;" />
+        <RegExpr attribute="Substitution" context="#stay" String="%[^ \t*?:~]+?%" />
+      </context>
+
+      <context name="String_Percent" attribute="String" lineEndContext="#stay">
+        <DetectChar attribute="String" context="#pop" char="%" />
+        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:%]+?&gt;" />
+      </context>
+
+      <context name="Expression_Group" attribute="Normal Text" lineEndContext="#stay">
+        <DetectChar attribute="Symbol" context="#pop" char=")" />
+        <IncludeRules context="Normal" />
+      </context>
+
+      <context name="Array" attribute="Array" lineEndContext="#stay">
+        <DetectChar context="#pop" char="(" lookAhead="true" />
+        <AnyChar context="#pop" String="&quot;~%" lookAhead="true" />
+        <WordDetect context="#pop" String="EVAL" additionalDeliminator="$" lookAhead="true" />
+      </context>
+
+      <context name="Match_Inlined" attribute="Normal Text" lineEndContext="#stay">
+        <!-- Providing syntax support for selected file types -->
+        <RegExpr attribute="Inlined Path" context="#pop!Inlined_TP" String=".*\.tp[2ahp]$" insensitive="true" />
+        <RegExpr attribute="Inlined Path" context="#pop!Inlined_D" String=".*\.d$" insensitive="true" />
+        <RegExpr attribute="Inlined Path" context="#pop!Inlined_Baf" String=".*\.baf$" insensitive="true" />
+        <RegExpr attribute="Inlined Path" context="#pop!Inlined_Tra" String=".*\.tra$" insensitive="true" />
+        <RegExpr attribute="Inlined Path" context="#pop!Inlined_Lua" String=".*\.lua$" insensitive="true" />
+        <RegExpr attribute="Inlined Path" context="#pop!Inlined_Ini" String=".*\.ini$" insensitive="true" />
+        <RegExpr attribute="Inlined Path" context="#pop!Inlined_Batch" String=".*\.(?:bat|cmd)$" insensitive="true" />
+        <RegExpr attribute="Inlined Path" context="#pop!Inlined_Bash" String=".*\.sh$" insensitive="true" />
+        <RegExpr attribute="Inlined Path" context="#pop!Inlined_Misc" String=".*$" />
+      </context>
+
+      <context name="Inlined_TP" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces context="#stay" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <IncludeRules context="Normal" />
+      </context>
+
+      <context name="Inlined_D" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces context="#stay" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <IncludeRules context="##WeiDU D" />
+        <DetectIdentifier context="#stay" />
+      </context>
+
+      <context name="Inlined_Baf" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces context="#stay" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <IncludeRules context="##WeiDU BAF" />
+      </context>
+
+      <context name="Inlined_Tra" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces context="#stay" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <IncludeRules context="##WeiDU TRA" />
+      </context>
+
+      <context name="Inlined_Lua" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces context="#stay" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <IncludeRules context="##Lua" />
+      </context>
+
+      <context name="Inlined_Ini" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces context="#stay" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <IncludeRules context="##INI Files" />
+      </context>
+
+      <context name="Inlined_Batch" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces context="#stay" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <IncludeRules context="##MS-DOS Batch" />
+      </context>
+
+      <context name="Inlined_Bash" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces context="#stay" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <IncludeRules context="##Bash" />
+      </context>
+
+      <context name="Inlined_Misc" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces context="#stay" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <DetectIdentifier context="#stay" />
+      </context>
+
+      <context name="AutoTra" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectSpaces context="#stay" />
+        <AnyChar attribute="String" context="#pop!Match_String" String="&quot;~" lookAhead="true" />
+      </context>
+    </contexts>
+
+    <itemDatas>
+      <!-- <itemData name="Normal Text"  defStyleNum="dsNormal"        spellChecking="false" /> -->
+      <!-- <itemData name="Comment"      defStyleNum="dsComment" /> -->
+      <!-- <itemData name="String"       defStyleNum="dsString" /> -->
+      <!-- <itemData name="Token"        defStyleNum="dsSpecialString" spellChecking="false" /> -->
+      <!-- <itemData name="Substitution" defStyleNum="dsPreprocessor"  spellChecking="false" /> -->
+      <!-- <itemData name="Symbol"       defStyleNum="dsOperator"      spellChecking="false" /> -->
+      <!-- <itemData name="TraRef"       defStyleNum="dsFloat"         spellChecking="false" /> -->
+      <!-- <itemData name="Decimal"      defStyleNum="dsDecVal"        spellChecking="false" /> -->
+      <!-- <itemData name="Bin"          defStyleNum="dsBaseN"         spellChecking="false" /> -->
+      <!-- <itemData name="Oct"          defStyleNum="dsBaseN"         spellChecking="false" /> -->
+      <!-- <itemData name="Hex"          defStyleNum="dsBaseN"         spellChecking="false" /> -->
+      <!-- <itemData name="Action"       defStyleNum="dsKeyword"       spellChecking="false" /> -->
+      <!-- <itemData name="Patch"        defStyleNum="dsExtension"     spellChecking="false" /> -->
+      <!-- <itemData name="Command"      defStyleNum="dsVariable"      spellChecking="false" /> -->
+      <!-- <itemData name="Flag"         defStyleNum="dsAttribute"     spellChecking="false" /> -->
+      <!-- <itemData name="Constant"     defStyleNum="dsConstant"      spellChecking="false" /> -->
+      <!-- <itemData name="Function"     defStyleNum="dsFunction"      spellChecking="false" /> -->
+      <!-- <itemData name="Inlined"      defStyleNum="dsAnnotation"    spellChecking="false" /> -->
+      <!-- <itemData name="Inlined Path" defStyleNum="dsSpecialString" spellChecking="false" /> -->
+      <!-- <itemData name="Diagnostic"   defStyleNum="dsAlert"         spellChecking="false" /> -->
+      <!-- <itemData name="Error"        defStyleNum="dsError"         spellChecking="false"/> -->
+
+      <!-- Emulate old NP++ color scheme for testing purposes -->
+      <itemData name="Normal Text"  defStyleNum="dsNormal"        color="#000000" bold="true"               spellChecking="false" />
+      <itemData name="Comment"      defStyleNum="dsComment"       color="#008000" backgroundColor="#FFFF80" />
+      <itemData name="String"       defStyleNum="dsString"        color="#C00040" />
+      <itemData name="Token"        defStyleNum="dsSpecialString" color="#000080" bold="true"               spellChecking="false" />
+      <itemData name="Substitution" defStyleNum="dsPreprocessor"  color="#C00040" italic="true"             spellChecking="false" />
+      <itemData name="Symbol"       defStyleNum="dsOperator"      color="#800080"                           spellChecking="false" />
+      <itemData name="Array"        defStyleNum="dsDataType"      color="#800080" bold="true"               spellChecking="false" />
+      <itemData name="TraRef"       defStyleNum="dsFloat"         color="#008080" bold="true"               spellChecking="false" />
+      <itemData name="Decimal"      defStyleNum="dsDecVal"        color="#800080"                           spellChecking="false" />
+      <itemData name="Bin"          defStyleNum="dsBaseN"         color="#800080"                           spellChecking="false" />
+      <itemData name="Oct"          defStyleNum="dsBaseN"         color="#800080"                           spellChecking="false" />
+      <itemData name="Hex"          defStyleNum="dsBaseN"         color="#800080"                           spellChecking="false" />
+      <itemData name="Action"       defStyleNum="dsKeyword"       color="#008000" bold="true"               spellChecking="false" />
+      <itemData name="Patch"        defStyleNum="dsExtension"     color="#FF0000" bold="true"               spellChecking="false" />
+      <itemData name="Command"      defStyleNum="dsVariable"      color="#800080" bold="true"               spellChecking="false" />
+      <itemData name="Flag"         defStyleNum="dsAttribute"     color="#0000FF" bold="true" italic="true" spellChecking="false" />
+      <itemData name="Constant"     defStyleNum="dsConstant"      color="#800080" italic="true"             spellChecking="false" />
+      <itemData name="Function"     defStyleNum="dsFunction"      color="#800080"                           spellChecking="false" />
+      <itemData name="Inlined"      defStyleNum="dsAnnotation"    color="#0000FF" bold="true"               spellChecking="false" />
+      <itemData name="Inlined Path" defStyleNum="dsSpecialString" color="#800080" italic="true"             spellChecking="false" />
+      <itemData name="Diagnostic"   defStyleNum="dsAlert"         color="#C00040" backgroundColor="#FFFF80" bold="true" spellChecking="false" />
+      <itemData name="Error"        defStyleNum="dsError"         color="#FF0000" backgroundColor="#FFFF00" bold="true" spellChecking="false"/>
+    </itemDatas>
+  </highlighting>
+
+  <general>
+    <comments>
+      <comment name="singleLine" start="//" position="afterwhitespace" />
+      <comment name="multiLine" start="/*" end="*/" region="Comment" />
+    </comments>
+    <keywords casesensitive="1" weakDeliminator=".[]{}\" additionalDeliminator="&quot;'`$" />
+  </general>
+</language>

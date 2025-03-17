@@ -10,23 +10,23 @@ Place the definition files from the "syntax" folder of this package into the dir
 
 #### For local users
 
-Navigate to `$HOME/.local/share/org.kde.syntax-highlighting/syntax/`. Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart Kate or KWrite.
+Navigate to `$HOME/.local/share/org.kde.syntax-highlighting/syntax/`. Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from the "syntax" folder of this package into the folder and restart Kate or KWrite.
 
 #### For Flatpak packages
 
-Navigate to `$HOME/.var/app/<package-name>/data/org.kde.syntax-highlighting/syntax/` where `<package-name>` specifies the fully qualified package name of Kate or KWrite (e.g. *org.kde.kate*). Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart Kate or KWrite.
+Navigate to `$HOME/.var/app/<package-name>/data/org.kde.syntax-highlighting/syntax/` where `<package-name>` specifies the fully qualified package name of Kate or KWrite (e.g. *org.kde.kate*). Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from the "syntax" folder of this package into the folder and restart Kate or KWrite.
 
 #### For Snap packages
 
-Navigate to `$HOME/snap/package-name/current/.local/share/org.kde.syntax-highlighting/syntax/` where `<package-name>` specifies the package name of Kate or KWrite. Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart Kate or KWrite.
+Navigate to `$HOME/snap/package-name/current/.local/share/org.kde.syntax-highlighting/syntax/` where `<package-name>` specifies the package name of Kate or KWrite. Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from the "syntax" folder of this package into the folder and restart Kate or KWrite.
 
 ### Windows
 
-Navigate to `%USERPROFILE%\AppData\Local\org.kde.syntax-highlighting\syntax\`. Create the directory if it doesn't exist yet. `%USERPROFILE%` usually expands to `C:\Users\<your-user-name>\`. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart Kate or KWrite.
+Navigate to `%USERPROFILE%\AppData\Local\org.kde.syntax-highlighting\syntax\`. Create the directory if it doesn't exist yet. `%USERPROFILE%` usually expands to `C:\Users\<your-user-name>\`. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from the "syntax" folder of this package into the folder and restart Kate or KWrite.
 
 ### macOS
 
-Navigate to `$HOME/Library/Application Support/org.kde.syntax-highlighting/syntax/`. Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart Kate or KWrite.
+Navigate to `$HOME/Library/Application Support/org.kde.syntax-highlighting/syntax/`. Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from the "syntax" folder of this package into the folder and restart Kate or KWrite.
 
 ## Usage
 
