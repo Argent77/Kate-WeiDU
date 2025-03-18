@@ -682,6 +682,16 @@
       <item>tb#fix_file_size</item>
     </list>
 
+    <list name="startaction">
+      <item>ACTION_DEFINE_ARRAY</item>
+      <item>ACTION_DEFINE_ASSOCIATIVE_ARRAY</item>
+    </list>
+
+    <list name="startpatch">
+      <item>DEFINE_ARRAY</item>
+      <item>DEFINE_ASSOCIATIVE_ARRAY</item>
+    </list>
+
     <list name="diagnostic">
       <item>BUG</item>
       <item>DEBUG</item>
@@ -722,6 +732,8 @@
         <AnyChar attribute="Symbol" context="#stay" String="+-/*=|&amp;^`&lt;&gt;;,!?:" />
 
         <!-- Keywords and predefined constants -->
+        <keyword attribute="Action" context="Start_Block" String="startaction" beginRegion="chunk" />
+        <keyword attribute="Patch" context="Start_Block" String="startpatch" beginRegion="chunk" />
         <WordDetect attribute="Command" context="AutoTra" String="AUTO_TRA" />
         <keyword attribute="Action" context="#stay" String="action" />
         <keyword attribute="Patch" context="#stay" String="patch" />
@@ -851,6 +863,11 @@
         <DetectSpaces context="#stay" />
         <StringDetect attribute="Inlined" context="#pop" String="&endinline;" endRegion="Inline" />
         <DetectIdentifier context="#stay" />
+      </context>
+
+      <context name="Start_Block" attribute="Normal Text" lineEndContext="#stay">
+        <StringDetect attribute="Flag" context="#pop" String="END" endRegion="chunk" />
+        <IncludeRules context="Normal" />
       </context>
 
       <context name="AutoTra" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
