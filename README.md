@@ -2,6 +2,12 @@
 
 This package contains syntax highlighting definitions for the [Kate Text Editor](https://kate-editor.org/). Kate for the KDE Frameworks version 5.79 (released in February 2021) or later is required.
 
+The following file types are covered:
+- WeiDU installation scripts (\*.tp2, \*.tpa, \*.tph, \*.tpp)
+- WeiDU translation tables (\*.tra)
+- Dialogue scripts (\*.d)
+- Game scripts (\*.baf)
+
 ## Installation
 
 This package provides three different flavors of syntax highlighting definitions:
@@ -15,23 +21,23 @@ Place the definition files from the folder of your choice into the directory as 
 
 #### For local users
 
-Navigate to `$HOME/.local/share/org.kde.syntax-highlighting/syntax/`. Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart the text editor.
+Navigate to `$HOME/.local/share/org.kde.syntax-highlighting/syntax/`. Create the directory if it doesn't exist. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart the text editor.
 
 #### For Flatpak packages
 
-Navigate to `$HOME/.var/app/<package-name>/data/org.kde.syntax-highlighting/syntax/` where `<package-name>` specifies the fully qualified package name of the text editor (e.g. *org.kde.kate*). Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart the text editor.
+Navigate to `$HOME/.var/app/<package-name>/data/org.kde.syntax-highlighting/syntax/` where `<package-name>` specifies the fully qualified package name of the text editor (e.g. *org.kde.kate*). Create the directory if it doesn't exist. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart the text editor.
 
 #### For Snap packages
 
-Navigate to `$HOME/snap/package-name/current/.local/share/org.kde.syntax-highlighting/syntax/` where `<package-name>` specifies the package name of the text editor. Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart the text editor.
+Navigate to `$HOME/snap/package-name/current/.local/share/org.kde.syntax-highlighting/syntax/` where `<package-name>` specifies the package name of the text editor. Create the directory if it doesn't exist. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart the text editor.
 
 ### Windows
 
-Navigate to `%USERPROFILE%\AppData\Local\org.kde.syntax-highlighting\syntax\`. Create the directory if it doesn't exist yet. `%USERPROFILE%` usually expands to `C:\Users\<your-user-name>\`. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart the text editor.
+Navigate to `%USERPROFILE%\AppData\Local\org.kde.syntax-highlighting\syntax\`. Create the directory if it doesn't exist. `%USERPROFILE%` usually expands to `C:\Users\<your-user-name>\`. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart the text editor.
 
 ### macOS
 
-Navigate to `$HOME/Library/Application Support/org.kde.syntax-highlighting/syntax/`. Create the directory if it doesn't exist yet. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart the text editor.
+Navigate to `$HOME/Library/Application Support/org.kde.syntax-highlighting/syntax/`. Create the directory if it doesn't exist. Place the files `weidu-tp2.xml`, `weidu-baf.xml`, `weidu-d.xml`, and `weidu-tra.xml` from this package into the folder and restart the text editor.
 
 ## Usage
 
