@@ -714,7 +714,7 @@
         <AnyChar attribute="String" context="Match_String" String="&quot;~%" lookAhead="true" />
 
         <!-- Inlined blocks -->
-        <StringDetect attribute="Inlined" context="Match_Inlined" String="&startinline;" />
+        <StringDetect attribute="Inlined" context="Match_Inlined" String="&startinline;" beginRegion="Inline" />
 
         <!-- Operators -->
         <DetectChar attribute="Symbol" context="Expression_Group" char="(" />
@@ -800,56 +800,56 @@
 
       <context name="Inlined_TP" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces context="#stay" />
-        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" endRegion="Inline" />
         <IncludeRules context="Normal" />
       </context>
 
       <context name="Inlined_D" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces context="#stay" />
-        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" endRegion="Inline" />
         <IncludeRules context="##WeiDU D" />
         <DetectIdentifier context="#stay" />
       </context>
 
       <context name="Inlined_Baf" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces context="#stay" />
-        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" endRegion="Inline" />
         <IncludeRules context="##WeiDU BAF" />
       </context>
 
       <context name="Inlined_Tra" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces context="#stay" />
-        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" endRegion="Inline" />
         <IncludeRules context="##WeiDU TRA" />
       </context>
 
       <context name="Inlined_Lua" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces context="#stay" />
-        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" endRegion="Inline" />
         <IncludeRules context="##Lua" />
       </context>
 
       <context name="Inlined_Ini" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces context="#stay" />
-        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" endRegion="Inline" />
         <IncludeRules context="##INI Files" />
       </context>
 
       <context name="Inlined_Batch" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces context="#stay" />
-        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" endRegion="Inline" />
         <IncludeRules context="##MS-DOS Batch" />
       </context>
 
       <context name="Inlined_Bash" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces context="#stay" />
-        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" endRegion="Inline" />
         <IncludeRules context="##Bash" />
       </context>
 
       <context name="Inlined_Misc" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces context="#stay" />
-        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" />
+        <StringDetect attribute="Inlined" context="#pop" String="&endinline;" endRegion="Inline" />
         <DetectIdentifier context="#stay" />
       </context>
 
