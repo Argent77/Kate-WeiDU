@@ -722,7 +722,7 @@
         <AnyChar attribute="Symbol" context="#stay" String="+-/*=|&amp;^`&lt;&gt;;,!?:" />
 
         <!-- Keywords and predefined constants -->
-        <WordDetect attribute="Action" context="AutoTra" String="AUTO_TRA" />
+        <WordDetect attribute="Command" context="AutoTra" String="AUTO_TRA" />
         <keyword attribute="Action" context="#stay" String="action" />
         <keyword attribute="Patch" context="#stay" String="patch" />
         <keyword attribute="Command" context="#stay" String="command" />
