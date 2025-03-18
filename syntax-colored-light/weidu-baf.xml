@@ -4042,50 +4042,50 @@
     </contexts>
 
     <itemDatas>
-      <itemData name="Normal Text"    defStyleNum="dsNormal"        spellChecking="false" />
-      <itemData name="Comment"        defStyleNum="dsComment" />
-      <itemData name="String"         defStyleNum="dsString" />
-      <itemData name="Scope"          defStyleNum="dsAttribute"     spellChecking="false" />
-      <itemData name="Token"          defStyleNum="dsChar"          spellChecking="false" />
-      <itemData name="Substitution"   defStyleNum="dsSpecialString" spellChecking="false" />
-      <itemData name="Symbol"         defStyleNum="dsOperator"      spellChecking="false" />
-      <itemData name="TraRef"         defStyleNum="dsDataType"      spellChecking="false" />
-      <itemData name="Decimal"        defStyleNum="dsDecVal"        spellChecking="false" />
-      <itemData name="Bin"            defStyleNum="dsBaseN"         spellChecking="false" />
-      <itemData name="Oct"            defStyleNum="dsBaseN"         spellChecking="false" />
-      <itemData name="Hex"            defStyleNum="dsBaseN"         spellChecking="false" />
-      <itemData name="Keyword"        defStyleNum="dsKeyword"       spellChecking="false" />
-      <itemData name="Action"         defStyleNum="dsExtension"     spellChecking="false" />
-      <itemData name="Trigger"        defStyleNum="dsBuiltIn"       spellChecking="false" />
-      <itemData name="Object"         defStyleNum="dsVariable"      spellChecking="false" />
-      <itemData name="IDS"            defStyleNum="dsAttribute"     spellChecking="false" />
-      <itemData name="Spell IDS"      defStyleNum="dsDataType"      spellChecking="false" />
-      <itemData name="Animation IDS"  defStyleNum="dsFunction"      spellChecking="false" />
-      <itemData name="Diagnostic"     defStyleNum="dsAlert"         spellChecking="false" />
-      <itemData name="Error"          defStyleNum="dsError"         spellChecking="false" />
+      <!-- <itemData name="Normal Text"    defStyleNum="dsNormal"        spellChecking="false" /> -->
+      <!-- <itemData name="Comment"        defStyleNum="dsComment" /> -->
+      <!-- <itemData name="String"         defStyleNum="dsString" /> -->
+      <!-- <itemData name="Scope"          defStyleNum="dsAttribute"     spellChecking="false" /> -->
+      <!-- <itemData name="Token"          defStyleNum="dsChar"          spellChecking="false" /> -->
+      <!-- <itemData name="Substitution"   defStyleNum="dsSpecialString" spellChecking="false" /> -->
+      <!-- <itemData name="Symbol"         defStyleNum="dsOperator"      spellChecking="false" /> -->
+      <!-- <itemData name="TraRef"         defStyleNum="dsDataType"      spellChecking="false" /> -->
+      <!-- <itemData name="Decimal"        defStyleNum="dsDecVal"        spellChecking="false" /> -->
+      <!-- <itemData name="Bin"            defStyleNum="dsBaseN"         spellChecking="false" /> -->
+      <!-- <itemData name="Oct"            defStyleNum="dsBaseN"         spellChecking="false" /> -->
+      <!-- <itemData name="Hex"            defStyleNum="dsBaseN"         spellChecking="false" /> -->
+      <!-- <itemData name="Keyword"        defStyleNum="dsKeyword"       spellChecking="false" /> -->
+      <!-- <itemData name="Action"         defStyleNum="dsExtension"     spellChecking="false" /> -->
+      <!-- <itemData name="Trigger"        defStyleNum="dsBuiltIn"       spellChecking="false" /> -->
+      <!-- <itemData name="Object"         defStyleNum="dsVariable"      spellChecking="false" /> -->
+      <!-- <itemData name="IDS"            defStyleNum="dsAttribute"     spellChecking="false" /> -->
+      <!-- <itemData name="Spell IDS"      defStyleNum="dsDataType"      spellChecking="false" /> -->
+      <!-- <itemData name="Animation IDS"  defStyleNum="dsFunction"      spellChecking="false" /> -->
+      <!-- <itemData name="Diagnostic"     defStyleNum="dsAlert"         spellChecking="false" /> -->
+      <!-- <itemData name="Error"          defStyleNum="dsError"         spellChecking="false" /> -->
 
       <!-- Emulation of the Notepad++ color scheme for WeiDU files -->
-      <!-- <itemData name="Normal Text"    defStyleNum="dsNormal"        color="#000000" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Comment"        defStyleNum="dsComment"       color="#008000" backgroundColor="#FFFF80" /> -->
-      <!-- <itemData name="String"         defStyleNum="dsString"        color="#C00040" /> -->
-      <!-- <itemData name="Scope"          defStyleNum="dsAttribute"     color="#8000C0"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Token"          defStyleNum="dsChar"          color="#000080" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Substitution"   defStyleNum="dsSpecialString" color="#C00040" italic="true"                         spellChecking="false" /> -->
-      <!-- <itemData name="Symbol"         defStyleNum="dsOperator"      color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="TraRef"         defStyleNum="dsDataType"      color="#008080" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Decimal"        defStyleNum="dsDecVal"        color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Bin"            defStyleNum="dsBaseN"         color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Oct"            defStyleNum="dsBaseN"         color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Hex"            defStyleNum="dsBaseN"         color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Keyword"        defStyleNum="dsKeyword"       color="#0000FF" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Action"         defStyleNum="dsExtension"     color="#FF0000" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Trigger"        defStyleNum="dsBuiltIn"       color="#008000" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Object"         defStyleNum="dsVariable"      color="#008080" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="IDS"            defStyleNum="dsAttribute"     color="#800080" bold="true" italic="true"             spellChecking="false" /> -->
-      <!-- <itemData name="Spell IDS"      defStyleNum="dsDataType"      color="#0000FF" italic="true"                         spellChecking="false" /> -->
-      <!-- <itemData name="Animation IDS"  defStyleNum="dsFunction"      color="#0000FF"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Diagnostic"     defStyleNum="dsAlert"         color="#C00040" backgroundColor="#FFFF80" bold="true" spellChecking="false" /> -->
-      <!-- <itemData name="Error"          defStyleNum="dsError"         color="#FF0000" backgroundColor="#FFFF00" bold="true" spellChecking="false" /> -->
+      <itemData name="Normal Text"    defStyleNum="dsNormal"        color="#000000"                                       spellChecking="false" />
+      <itemData name="Comment"        defStyleNum="dsComment"       color="#008000" backgroundColor="#FFFF80" italic="true" />
+      <itemData name="String"         defStyleNum="dsString"        color="#800000" />
+      <itemData name="Scope"          defStyleNum="dsAttribute"     color="#8000C0"                                       spellChecking="false" />
+      <itemData name="Token"          defStyleNum="dsChar"          color="#8000FF"                                       spellChecking="false" />
+      <itemData name="Substitution"   defStyleNum="dsSpecialString" color="#FF4040" italic="true"                         spellChecking="false" />
+      <itemData name="Symbol"         defStyleNum="dsOperator"      color="#800080"                                       spellChecking="false" />
+      <itemData name="TraRef"         defStyleNum="dsDataType"      color="#000080" bold="true"                           spellChecking="false" />
+      <itemData name="Decimal"        defStyleNum="dsDecVal"        color="#8000FF"                                       spellChecking="false" />
+      <itemData name="Bin"            defStyleNum="dsBaseN"         color="#8000FF"                                       spellChecking="false" />
+      <itemData name="Oct"            defStyleNum="dsBaseN"         color="#8000FF"                                       spellChecking="false" />
+      <itemData name="Hex"            defStyleNum="dsBaseN"         color="#8000FF"                                       spellChecking="false" />
+      <itemData name="Keyword"        defStyleNum="dsKeyword"       color="#0000FF" bold="true"                           spellChecking="false" />
+      <itemData name="Action"         defStyleNum="dsExtension"     color="#FF0000" bold="true"                           spellChecking="false" />
+      <itemData name="Trigger"        defStyleNum="dsBuiltIn"       color="#008000" bold="true"                           spellChecking="false" />
+      <itemData name="Object"         defStyleNum="dsVariable"      color="#008080" bold="true"                           spellChecking="false" />
+      <itemData name="IDS"            defStyleNum="dsAttribute"     color="#800080"                                       spellChecking="false" />
+      <itemData name="Spell IDS"      defStyleNum="dsDataType"      color="#0000FF" italic="true"                         spellChecking="false" />
+      <itemData name="Animation IDS"  defStyleNum="dsFunction"      color="#0000FF"                                       spellChecking="false" />
+      <itemData name="Diagnostic"     defStyleNum="dsAlert"         color="#C00040" backgroundColor="#FFFF80" bold="true" spellChecking="false" />
+      <itemData name="Error"          defStyleNum="dsError"         color="#FF0000" backgroundColor="#FFFF00" bold="true" spellChecking="false" />
     </itemDatas>
   </highlighting>
 

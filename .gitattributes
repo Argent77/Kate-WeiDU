@@ -1,2 +1,6 @@
+* text=auto
+
 *.txt text
 *.xml text
+
+*.webp binary
