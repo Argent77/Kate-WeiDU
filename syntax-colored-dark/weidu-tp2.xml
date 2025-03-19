@@ -588,6 +588,7 @@
       <item>DEST_FILE</item>
       <item>DEST_RES</item>
       <item>DEST_EXT</item>
+      <item>ERROR_MESSAGE</item>
       <item>INTERACTIVE</item>
       <item>SOURCE_DIRECTORY</item>
       <item>SOURCE_FILESPEC</item>
