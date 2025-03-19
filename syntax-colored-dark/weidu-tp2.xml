@@ -81,6 +81,10 @@
       <item>DEFINE_ACTION_FUNCTION</item>
       <item>DEFINE_ACTION_MACRO</item>
       <item>DEFINE_DIMORPHIC_FUNCTION</item>
+      <item>DEFINE_FUNCTION_ACTION</item>
+      <item>DEFINE_FUNCTION_PATCH</item>
+      <item>DEFINE_MACRO_ACTION</item>
+      <item>DEFINE_MACRO_PATCH</item>
       <item>DEFINE_PATCH_FUNCTION</item>
       <item>DEFINE_PATCH_MACRO</item>
       <item>DELETE</item>
@@ -99,6 +103,8 @@
       <item>LAM</item>
       <item>LAUNCH_ACTION_FUNCTION</item>
       <item>LAUNCH_ACTION_MACRO</item>
+      <item>LAUNCH_FUNCTION_ACTION</item>
+      <item>LAUNCH_MACRO_ACTION</item>
       <item>LOAD_TRA</item>
       <item>LOG</item>
       <item>MAKE_BIFF</item>
@@ -179,6 +185,8 @@
       <item>INSERT_2DA_ROW</item>
       <item>INSERT_BYTES</item>
       <item>INSERT_FILE</item>
+      <item>LAUNCH_FUNCTION_PATCH</item>
+      <item>LAUNCH_MACRO_PATCH</item>
       <item>LAUNCH_PATCH_FUNCTION</item>
       <item>LAUNCH_PATCH_MACRO</item>
       <item>LOCAL_SET</item>
@@ -286,6 +294,7 @@
       <item>ABS</item>
       <item>ALLOW_MISSING</item>
       <item>AND</item>
+      <item>AND_EQUALS</item>
       <item>ASK_EVERY_COMPONENT</item>
       <item>AUTHOR</item>
       <item>AUTO_EVAL_STRINGS</item>
@@ -295,16 +304,27 @@
       <item>BASR</item>
       <item>BIFF_IS_COMPRESSED</item>
       <item>BLSL</item>
+      <item>BLSL_EQUALS</item>
       <item>BLSR</item>
+      <item>BLSR_EQUALS</item>
       <item>BNOT</item>
       <item>BOR</item>
       <item>BUFFER_LENGTH</item>
       <item>BXOR</item>
+      <item>BXOR_EQUALS</item>
       <item>BYTE_AT</item>
+      <item>COLON</item>
+      <item>COMMA</item>
       <item>DEPRECATED</item>
       <item>DESIGNATED</item>
       <item>DIRECTORY_EXISTS</item>
+      <item>DIVIDE</item>
+      <item>DIVIDE_EQUALS</item>
+      <item>DOLLARS</item>
       <item>ENGINE_IS</item>
+      <item>EQUALS</item>
+      <item>EQUALSEQUALS</item>
+      <item>EQUALSGREATER</item>
       <item>EVALUATE_BUFFER</item>
       <item>FILE_CONTAINS</item>
       <item>FILE_CONTAINS_EVALUATED</item>
@@ -319,6 +339,8 @@
       <item>GAME_INCLUDES</item>
       <item>GAME_IS</item>
       <item>GROUP</item>
+      <item>GT</item>
+      <item>GTE</item>
       <item>IDS_OF_SYMBOL</item>
       <item>ID_OF_LABEL</item>
       <item>INDEX</item>
@@ -330,8 +352,14 @@
       <item>LABEL</item>
       <item>LANGUAGE</item>
       <item>LONG_AT</item>
+      <item>LPAREN</item>
+      <item>LT</item>
+      <item>LTE</item>
       <item>MENU_STYLE</item>
       <item>METADATA</item>
+      <item>MINUS</item>
+      <item>MINUS_EQUALS</item>
+      <item>MINUS_MINUS</item>
       <item>MODDER</item>
       <item>MODULO</item>
       <item>MOD_IS_INSTALLED</item>
@@ -339,7 +367,13 @@
       <item>NO_IF_EVAL_BUG</item>
       <item>NO_LOG_RECORD</item>
       <item>NOT</item>
+      <item>NOTEQUALS</item>
       <item>OR</item>
+      <item>OR_EQUALS</item>
+      <item>PLUS</item>
+      <item>PLUS_EQUALS</item>
+      <item>PLUS_PLUS</item>
+      <item>QUESTION</item>
       <item>QUICK_MENU</item>
       <item>RANDOM</item>
       <item>README</item>
@@ -350,8 +384,10 @@
       <item>RESOURCE_CONTAINS</item>
       <item>RINDEX</item>
       <item>RINDEX_BUFFER</item>
+      <item>RPAREN</item>
       <item>SBYTE_AT</item>
       <item>SCRIPT_STYLE</item>
+      <item>SEMICOLON</item>
       <item>SHORT_AT</item>
       <item>SIZE_OF_FILE</item>
       <item>SLONG_AT</item>
@@ -360,6 +396,7 @@
       <item>STRING_COMPARE</item>
       <item>STRING_COMPARE_CASE</item>
       <item>STRING_COMPARE_REGEXP</item>
+      <item>STRING_CONCAT</item>
       <item>STRING_CONTAINS_REGEXP</item>
       <item>STRING_EQUAL</item>
       <item>STRING_EQUAL_CASE</item>
@@ -370,6 +407,9 @@
       <item>SUBCOMPONENT</item>
       <item>SUB_COMPONENT</item>
       <item>SUPPORT</item>
+      <item>TIMES</item>
+      <item>TIMES_EQUALS</item>
+      <item>TIMESTIMES</item>
       <item>TRA_ENTRY_EXISTS</item>
       <item>UNDEFINED</item>
       <item>UNINSTALL_ORDER</item>
@@ -983,3 +1023,4 @@
     <keywords casesensitive="1" weakDeliminator=".[]{}\" additionalDeliminator="&quot;'`$" />
   </general>
 </language>
+<!-- kate: replace-tabs on; tab-width 2; indent-width 2; -->
