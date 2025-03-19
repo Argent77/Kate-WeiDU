@@ -536,8 +536,25 @@
       <item>STHIS</item>
       <item>WEIDU_ARCH</item>
       <item>WEIDU_OS</item>
+      <item>BASH_FOR_DIRECTORY</item>
+      <item>BASH_FOR_FILESPEC</item>
+      <item>BASH_FOR_FILE</item>
+      <item>BASH_FOR_RES</item>
+      <item>BASH_FOR_EXT</item>
+      <item>BASH_FOR_SIZE</item>
       <item>COMPONENT_NUMBER</item>
+      <item>DEST_DIRECTORY</item>
+      <item>DEST_FILESPEC</item>
+      <item>DEST_FILE</item>
+      <item>DEST_RES</item>
+      <item>DEST_EXT</item>
       <item>INTERACTIVE</item>
+      <item>SOURCE_DIRECTORY</item>
+      <item>SOURCE_FILESPEC</item>
+      <item>SOURCE_FILE</item>
+      <item>SOURCE_RES</item>
+      <item>SOURCE_EXT</item>
+      <item>SOURCE_SIZE</item>
       <item>TP2_AUTHOR</item>
       <item>TP2_FILE_NAME</item>
       <item>TP2_BASE_NAME</item>
@@ -743,6 +760,7 @@
         <keyword attribute="Function" context="#stay" String="function" />
       </context>
 
+
       <context name="Line_Comment" attribute="Comment" lineEndContext="#pop">
         <DetectSpaces context="#stay" />
         <keyword attribute="Diagnostic" context="#stay" String="diagnostic" />
@@ -756,6 +774,7 @@
         <DetectIdentifier context="#stay" />
       </context>
 
+
       <context name="Match_String" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectChar attribute="String" context="#pop!String_Quote" char="&quot;" />
         <StringDetect attribute="String" context="#pop!String_5Tildes" String="~~~~~" />
@@ -766,19 +785,19 @@
       <context name="String_Quote" attribute="String" lineEndContext="#stay">
         <DetectChar attribute="String" context="#pop" char="&quot;" />
         <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:&quot;]+?&gt;" />
-        <RegExpr attribute="Substitution" context="#stay" String="%[^ \t*?:&quot;]+?%" />
+        <DetectChar attribute="Substitution" context="Substitution_Quote" char="%" />
       </context>
 
       <context name="String_Tilde" attribute="String" lineEndContext="#stay">
         <DetectChar attribute="String" context="#pop" char="~" />
         <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:~]+?&gt;" />
-        <RegExpr attribute="Substitution" context="#stay" String="%[^ \t*?:~]+?%" />
+        <DetectChar attribute="Substitution" context="Substitution_Tilde" char="%" />
       </context>
 
       <context name="String_5Tildes" attribute="String" lineEndContext="#stay">
         <StringDetect attribute="String" context="#pop" String="~~~~~" />
         <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:~]+?&gt;" />
-        <RegExpr attribute="Substitution" context="#stay" String="%[^ \t*?:~]+?%" />
+        <DetectChar attribute="Substitution" context="Substitution_5Tildes" char="%" />
       </context>
 
       <context name="String_Percent" attribute="String" lineEndContext="#stay">
@@ -786,16 +805,42 @@
         <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:%]+?&gt;" />
       </context>
 
+
+      <context name="Substitution_Quote" attribute="Substitution" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Substitution" context="#pop" char="%" />
+        <AnyChar attribute="Substitution" context="#pop" String="&quot;&lt;&gt;" lookAhead="true" />
+        <keyword attribute="Substitution Constant" context="#stay" String="constant" />
+      </context>
+
+      <context name="Substitution_Tilde" attribute="Substitution" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Substitution" context="#pop" char="%" />
+        <AnyChar attribute="Substitution" context="#pop" String="~&lt;&gt;" lookAhead="true" />
+        <keyword attribute="Substitution Constant" context="#stay" String="constant" />
+      </context>
+
+      <context name="Substitution_5Tildes" attribute="Substitution" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Substitution" context="#pop" char="%" />
+        <StringDetect attribute="Substitution" context="#pop" String="~~~~~" lookAhead="true" />
+        <AnyChar attribute="Substitution" context="#pop" String="&lt;&gt;" lookAhead="true" />
+        <keyword attribute="Substitution Constant" context="#stay" String="constant" />
+      </context>
+
+
       <context name="Expression_Group" attribute="Normal Text" lineEndContext="#stay">
         <DetectChar attribute="Symbol" context="#pop" char=")" />
         <IncludeRules context="Normal" />
       </context>
+
 
       <context name="Array" attribute="Array" lineEndContext="#stay">
         <DetectChar context="#pop" char="(" lookAhead="true" />
         <AnyChar context="#pop" String="&quot;~%" lookAhead="true" />
         <WordDetect context="#pop" String="EVAL" additionalDeliminator="$" lookAhead="true" />
       </context>
+
 
       <context name="Match_Inlined" attribute="Normal Text" lineEndContext="#stay">
         <!-- Providing syntax support for selected file types -->
@@ -865,10 +910,12 @@
         <DetectIdentifier context="#stay" />
       </context>
 
+
       <context name="Start_Block" attribute="Normal Text" lineEndContext="#stay">
         <StringDetect attribute="Flag" context="#pop" String="END" endRegion="chunk" />
         <IncludeRules context="Normal" />
       </context>
+
 
       <context name="AutoTra" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectSpaces context="#stay" />
@@ -877,52 +924,54 @@
     </contexts>
 
     <itemDatas>
-      <itemData name="Normal Text"  defStyleNum="dsNormal"        spellChecking="false" />
-      <itemData name="Comment"      defStyleNum="dsComment" />
-      <itemData name="String"       defStyleNum="dsString" />
-      <itemData name="Token"        defStyleNum="dsChar"          spellChecking="false" />
-      <itemData name="Substitution" defStyleNum="dsSpecialString" spellChecking="false" />
-      <itemData name="Symbol"       defStyleNum="dsOperator"      spellChecking="false" />
-      <itemData name="Array"        defStyleNum="dsDataType"      spellChecking="false" />
-      <itemData name="TraRef"       defStyleNum="dsDataType"      spellChecking="false" />
-      <itemData name="Decimal"      defStyleNum="dsDecVal"        spellChecking="false" />
-      <itemData name="Bin"          defStyleNum="dsBaseN"         spellChecking="false" />
-      <itemData name="Oct"          defStyleNum="dsBaseN"         spellChecking="false" />
-      <itemData name="Hex"          defStyleNum="dsBaseN"         spellChecking="false" />
-      <itemData name="Action"       defStyleNum="dsBuiltIn"       spellChecking="false" />
-      <itemData name="Patch"        defStyleNum="dsExtension"     spellChecking="false" />
-      <itemData name="Command"      defStyleNum="dsFunction"      spellChecking="false" />
-      <itemData name="Flag"         defStyleNum="dsControlFlow"   spellChecking="false" />
-      <itemData name="Constant"     defStyleNum="dsConstant"      spellChecking="false" />
-      <itemData name="Function"     defStyleNum="dsPreprocessor"  spellChecking="false" />
-      <itemData name="Inlined"      defStyleNum="dsAnnotation"    spellChecking="false" />
-      <itemData name="Inlined Path" defStyleNum="dsString"        spellChecking="false" />
-      <itemData name="Diagnostic"   defStyleNum="dsAlert"         spellChecking="false" />
-      <itemData name="Error"        defStyleNum="dsError"         spellChecking="false" />
+      <itemData name="Normal Text"            defStyleNum="dsNormal"          spellChecking="false" />
+      <itemData name="Comment"                defStyleNum="dsComment" />
+      <itemData name="String"                 defStyleNum="dsString" />
+      <itemData name="Token"                  defStyleNum="dsChar"            spellChecking="false" />
+      <itemData name="Substitution"           defStyleNum="dsSpecialString"   spellChecking="false" />
+      <itemData name="Substitution Constant"  defStyleNum="dsSpecialString"   spellChecking="false" />
+      <itemData name="Symbol"                 defStyleNum="dsOperator"        spellChecking="false" />
+      <itemData name="Array"                  defStyleNum="dsDataType"        spellChecking="false" />
+      <itemData name="TraRef"                 defStyleNum="dsDataType"        spellChecking="false" />
+      <itemData name="Decimal"                defStyleNum="dsDecVal"          spellChecking="false" />
+      <itemData name="Bin"                    defStyleNum="dsBaseN"           spellChecking="false" />
+      <itemData name="Oct"                    defStyleNum="dsBaseN"           spellChecking="false" />
+      <itemData name="Hex"                    defStyleNum="dsBaseN"           spellChecking="false" />
+      <itemData name="Action"                 defStyleNum="dsBuiltIn"         spellChecking="false" />
+      <itemData name="Patch"                  defStyleNum="dsExtension"       spellChecking="false" />
+      <itemData name="Command"                defStyleNum="dsFunction"        spellChecking="false" />
+      <itemData name="Flag"                   defStyleNum="dsControlFlow"     spellChecking="false" />
+      <itemData name="Constant"               defStyleNum="dsConstant"        spellChecking="false" />
+      <itemData name="Function"               defStyleNum="dsPreprocessor"    spellChecking="false" />
+      <itemData name="Inlined"                defStyleNum="dsAnnotation"      spellChecking="false" />
+      <itemData name="Inlined Path"           defStyleNum="dsString"          spellChecking="false" />
+      <itemData name="Diagnostic"             defStyleNum="dsAlert"           spellChecking="false" />
+      <itemData name="Error"                  defStyleNum="dsError"           spellChecking="false" />
 
       <!-- Emulation of the Notepad++ color scheme for WeiDU files -->
-      <!-- <itemData name="Normal Text"  defStyleNum="dsNormal"        color="#000000" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Comment"      defStyleNum="dsComment"       color="#008000" backgroundColor="#FFFF80" /> -->
-      <!-- <itemData name="String"       defStyleNum="dsString"        color="#C00040" /> -->
-      <!-- <itemData name="Token"        defStyleNum="dsChar"          color="#000080" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Substitution" defStyleNum="dsSpecialString" color="#C00040" italic="true"                         spellChecking="false" /> -->
-      <!-- <itemData name="Symbol"       defStyleNum="dsOperator"      color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Array"        defStyleNum="dsDataType"      color="#800080" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="TraRef"       defStyleNum="dsDataType"      color="#008080" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Decimal"      defStyleNum="dsDecVal"        color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Bin"          defStyleNum="dsBaseN"         color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Oct"          defStyleNum="dsBaseN"         color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Hex"          defStyleNum="dsBaseN"         color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Action"       defStyleNum="dsBuiltIn"       color="#008000" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Patch"        defStyleNum="dsExtension"     color="#FF0000" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Command"      defStyleNum="dsFunction"      color="#800080" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Flag"         defStyleNum="dsControlFlow"   color="#0000FF" bold="true" italic="true"             spellChecking="false" /> -->
-      <!-- <itemData name="Constant"     defStyleNum="dsConstant"      color="#800080" italic="true"                         spellChecking="false" /> -->
-      <!-- <itemData name="Function"     defStyleNum="dsPreprocessor"  color="#800080"                                       spellChecking="false" /> -->
-      <!-- <itemData name="Inlined"      defStyleNum="dsAnnotation"    color="#0000FF" bold="true"                           spellChecking="false" /> -->
-      <!-- <itemData name="Inlined Path" defStyleNum="dsString"        color="#800080" italic="true"                         spellChecking="false" /> -->
-      <!-- <itemData name="Diagnostic"   defStyleNum="dsAlert"         color="#C00040" backgroundColor="#FFFF80" bold="true" spellChecking="false" /> -->
-      <!-- <itemData name="Error"        defStyleNum="dsError"         color="#FF0000" backgroundColor="#FFFF00" bold="true" spellChecking="false" /> -->
+      <!-- <itemData name="Normal Text"            defStyleNum="dsNormal"          color="#000000"                                       spellChecking="false" /> -->
+      <!-- <itemData name="Comment"                defStyleNum="dsComment"         color="#008000" backgroundColor="#FFFF80" italic="true" /> -->
+      <!-- <itemData name="String"                 defStyleNum="dsString"          color="#C00040" /> -->
+      <!-- <itemData name="Token"                  defStyleNum="dsChar"            color="#8000FF"                                       spellChecking="false" /> -->
+      <!-- <itemData name="Substitution"           defStyleNum="dsSpecialString"   color="#FF4040" italic="true"                         spellChecking="false" /> -->
+      <!-- <itemData name="Substitution Constant"  defStyleNum="dsSpecialString"   color="#FF4040" bold="true" italic="true"             spellChecking="false" /> -->
+      <!-- <itemData name="Symbol"                 defStyleNum="dsOperator"        color="#800080"                                       spellChecking="false" /> -->
+      <!-- <itemData name="Array"                  defStyleNum="dsDataType"        color="#800080"                                       spellChecking="false" /> -->
+      <!-- <itemData name="TraRef"                 defStyleNum="dsDataType"        color="#000080" bold="true"                           spellChecking="false" /> -->
+      <!-- <itemData name="Decimal"                defStyleNum="dsDecVal"          color="#800080"                                       spellChecking="false" /> -->
+      <!-- <itemData name="Bin"                    defStyleNum="dsBaseN"           color="#800080"                                       spellChecking="false" /> -->
+      <!-- <itemData name="Oct"                    defStyleNum="dsBaseN"           color="#800080"                                       spellChecking="false" /> -->
+      <!-- <itemData name="Hex"                    defStyleNum="dsBaseN"           color="#800080"                                       spellChecking="false" /> -->
+      <!-- <itemData name="Action"                 defStyleNum="dsBuiltIn"         color="#008000" bold="true"                           spellChecking="false" /> -->
+      <!-- <itemData name="Patch"                  defStyleNum="dsExtension"       color="#FF0000" bold="true"                           spellChecking="false" /> -->
+      <!-- <itemData name="Command"                defStyleNum="dsFunction"        color="#800080" bold="true"                           spellChecking="false" /> -->
+      <!-- <itemData name="Flag"                   defStyleNum="dsControlFlow"     color="#0000FF" bold="true"                           spellChecking="false" /> -->
+      <!-- <itemData name="Constant"               defStyleNum="dsConstant"        color="#800080"                                       spellChecking="false" /> -->
+      <!-- <itemData name="Function"               defStyleNum="dsPreprocessor"    color="#800080"                                       spellChecking="false" /> -->
+      <!-- <itemData name="Inlined"                defStyleNum="dsAnnotation"      color="#0000FF" bold="true"                           spellChecking="false" /> -->
+      <!-- <itemData name="Inlined Path"           defStyleNum="dsString"          color="#C00040"                                       spellChecking="false" /> -->
+      <!-- <itemData name="Diagnostic"             defStyleNum="dsAlert"           color="#C00040" backgroundColor="#FFFF80" bold="true" spellChecking="false" /> -->
+      <!-- <itemData name="Error"                  defStyleNum="dsError"           color="#FF0000" backgroundColor="#FFFF00" bold="true" spellChecking="false" /> -->
     </itemDatas>
   </highlighting>
 

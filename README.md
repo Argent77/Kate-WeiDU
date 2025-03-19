@@ -43,8 +43,8 @@ Navigate to `$HOME/Library/Application Support/org.kde.syntax-highlighting/synta
 
 A suitable syntax highlighter is automatically selected if the opened file contains any of the supported file extensions.
 - WeiDU TP2: `.tp2`, `.tpa`, `.tph`, or `.tpp`. Select menu *Tools > Highlighting > Scripts > WeiDU TP2* to enable the syntax highlighter manually.
-- WeiDU BAF: `.baf`. Select menu *Tools > Highlighting > Scripts > WeiDU BAF* to enable the syntax highlighter manually.
-- WeiDU D: `.d`. Select menu *Tools > Highlighting > Scripts > WeiDU D* to enable the syntax highlighter manually.
 - WeiDU TRA: `.tra`. Select menu *Tools > Highlighting > Other > WeiDU TRA* to enable the syntax highlighter manually.
+- WeiDU D: `.d`. Select menu *Tools > Highlighting > Scripts > WeiDU D* to enable the syntax highlighter manually.
+- WeiDU BAF: `.baf`. Select menu *Tools > Highlighting > Scripts > WeiDU BAF* to enable the syntax highlighter manually.
 
 ## Changelog
