@@ -740,6 +740,64 @@
       <item>tb#fix_file_size</item>
     </list>
 
+    <list name="token">
+      <item>BROTHERSISTER</item>
+      <item>CHARNAME</item>
+      <item>DAY</item>
+      <item>DAYANDMONTH</item>
+      <item>DAYNIGHT</item>
+      <item>DAYNIGHTALL</item>
+      <item>FAMILIAR_SUMMONER</item>
+      <item>GABBER</item>
+      <item>GAMEDAY</item>
+      <item>GAMEDAYS</item>
+      <item>GIRLBOY</item>
+      <item>HESHE</item>
+      <item>HIMHER</item>
+      <item>HISHER</item>
+      <item>LADYLORD</item>
+      <item>LEVEL</item>
+      <item>MALEFEMALE</item>
+      <item>MANWOMAN</item>
+      <item>MONTH</item>
+      <item>MONTHNAME</item>
+      <item>PLAYER1</item>
+      <item>PLAYER2</item>
+      <item>PLAYER3</item>
+      <item>PLAYER4</item>
+      <item>PLAYER5</item>
+      <item>PLAYER6</item>
+      <item>PROTAGONIST_BROTHERSISTER</item>
+      <item>PROTAGONIST_GIRLBOY</item>
+      <item>PROTAGONIST_HESHE</item>
+      <item>PROTAGONIST_HIMHER</item>
+      <item>PROTAGONIST_HISHER</item>
+      <item>PROTAGONIST_LADYLORD</item>
+      <item>PROTAGONIST_MALEFEMALE</item>
+      <item>PROTAGONIST_MANWOMAN</item>
+      <item>PROTAGONIST_RACE</item>
+      <item>PROTAGONIST_SIRMAAM</item>
+      <item>PRO_BROTHERSISTER</item>
+      <item>PRO_CLASS</item>
+      <item>PRO_GIRLBOY</item>
+      <item>PRO_HESHE</item>
+      <item>PRO_HIMHER</item>
+      <item>PRO_HISHER</item>
+      <item>PRO_LADYLORD</item>
+      <item>PRO_MALEFEMALE</item>
+      <item>PRO_MANWOMAN</item>
+      <item>PRO_MASTERMISTRESS</item>
+      <item>PRO_RACE</item>
+      <item>PRO_SIRMAAM</item>
+      <item>PRO_SONDAUGHTER</item>
+      <item>RACE</item>
+      <item>SIRMAAM</item>
+      <item>SONDAUGHTER</item>
+      <item>SURFACE_UNDERDARK</item>
+      <item>TM</item>
+      <item>YEAR</item>
+    </list>
+
     <list name="startaction">
       <item>ACTION_DEFINE_ARRAY</item>
       <item>ACTION_DEFINE_ASSOCIATIVE_ARRAY</item>
@@ -825,25 +883,55 @@
 
       <context name="String_Quote" attribute="String" lineEndContext="#stay">
         <DetectChar attribute="String" context="#pop" char="&quot;" />
-        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:&quot;]+?&gt;" />
+        <DetectChar attribute="Token" context="Token_Quote" char="&lt;" />
         <DetectChar attribute="Substitution" context="Substitution_Quote" char="%" />
       </context>
 
       <context name="String_Tilde" attribute="String" lineEndContext="#stay">
         <DetectChar attribute="String" context="#pop" char="~" />
-        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:~]+?&gt;" />
+        <DetectChar attribute="Token" context="Token_Tilde" char="&lt;" />
         <DetectChar attribute="Substitution" context="Substitution_Tilde" char="%" />
       </context>
 
       <context name="String_5Tildes" attribute="String" lineEndContext="#stay">
         <StringDetect attribute="String" context="#pop" String="~~~~~" />
-        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:~]+?&gt;" />
+        <DetectChar attribute="Token" context="Token_5Tildes" char="&lt;" />
         <DetectChar attribute="Substitution" context="Substitution_5Tildes" char="%" />
       </context>
 
       <context name="String_Percent" attribute="String" lineEndContext="#stay">
         <DetectChar attribute="String" context="#pop" char="%" />
-        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:%]+?&gt;" />
+        <DetectChar attribute="Token" context="Token_Percent" char="&lt;" />
+      </context>
+
+
+      <context name="Token_Quote" attribute="Token" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Token" context="#pop" char="&gt;" />
+        <AnyChar attribute="Token" context="#pop" String="&quot;&lt;*?" lookAhead="true" />
+        <keyword attribute="Token Constant" context="#stay" String="token" />
+      </context>
+
+      <context name="Token_Tilde" attribute="Token" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Token" context="#pop" char="&gt;" />
+        <AnyChar attribute="Token" context="#pop" String="~&lt;*?" lookAhead="true" />
+        <keyword attribute="Token Constant" context="#stay" String="token" />
+      </context>
+
+      <context name="Token_5Tildes" attribute="Token" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Token" context="#pop" char="&gt;" />
+        <StringDetect attribute="Token" context="#pop" String="~~~~~" lookAhead="true" />
+        <AnyChar attribute="Token" context="#pop" String="&lt;*?" lookAhead="true" />
+        <keyword attribute="Token Constant" context="#stay" String="token" />
+      </context>
+
+      <context name="Token_Percent" attribute="Token" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Token" context="#pop" char="&gt;" />
+        <AnyChar attribute="Token" context="#pop" String="%&lt;*?" lookAhead="true" />
+        <keyword attribute="Token Constant" context="#stay" String="token" />
       </context>
 
 
@@ -969,6 +1057,7 @@
       <!-- <itemData name="Comment"                defStyleNum="dsComment" /> -->
       <!-- <itemData name="String"                 defStyleNum="dsString" /> -->
       <!-- <itemData name="Token"                  defStyleNum="dsChar"            spellChecking="false" /> -->
+      <!-- <itemData name="Token Constant"         defStyleNum="dsChar"            spellChecking="false" /> -->
       <!-- <itemData name="Substitution"           defStyleNum="dsSpecialString"   spellChecking="false" /> -->
       <!-- <itemData name="Substitution Constant"  defStyleNum="dsSpecialString"   spellChecking="false" /> -->
       <!-- <itemData name="Symbol"                 defStyleNum="dsOperator"        spellChecking="false" /> -->
@@ -994,6 +1083,7 @@
       <itemData name="Comment"                defStyleNum="dsComment"         color="#70A63A" italic="true" />
       <itemData name="String"                 defStyleNum="dsString"          color="#FFD2E1" />
       <itemData name="Token"                  defStyleNum="dsChar"            color="#B66CFF"                           spellChecking="false" />
+      <itemData name="Token Constant"         defStyleNum="dsChar"            color="#B66CFF" bold="true"               spellChecking="false" />
       <itemData name="Substitution"           defStyleNum="dsSpecialString"   color="#FF4040" italic="true"             spellChecking="false" />
       <itemData name="Substitution Constant"  defStyleNum="dsSpecialString"   color="#FF4040" bold="true" italic="true" spellChecking="false" />
       <itemData name="Symbol"                 defStyleNum="dsOperator"        color="#FF75FF"                           spellChecking="false" />

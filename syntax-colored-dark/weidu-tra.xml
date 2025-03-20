@@ -13,6 +13,64 @@
   license="MIT"
   indenter="normal">
   <highlighting>
+    <list name="token">
+      <item>BROTHERSISTER</item>
+      <item>CHARNAME</item>
+      <item>DAY</item>
+      <item>DAYANDMONTH</item>
+      <item>DAYNIGHT</item>
+      <item>DAYNIGHTALL</item>
+      <item>FAMILIAR_SUMMONER</item>
+      <item>GABBER</item>
+      <item>GAMEDAY</item>
+      <item>GAMEDAYS</item>
+      <item>GIRLBOY</item>
+      <item>HESHE</item>
+      <item>HIMHER</item>
+      <item>HISHER</item>
+      <item>LADYLORD</item>
+      <item>LEVEL</item>
+      <item>MALEFEMALE</item>
+      <item>MANWOMAN</item>
+      <item>MONTH</item>
+      <item>MONTHNAME</item>
+      <item>PLAYER1</item>
+      <item>PLAYER2</item>
+      <item>PLAYER3</item>
+      <item>PLAYER4</item>
+      <item>PLAYER5</item>
+      <item>PLAYER6</item>
+      <item>PROTAGONIST_BROTHERSISTER</item>
+      <item>PROTAGONIST_GIRLBOY</item>
+      <item>PROTAGONIST_HESHE</item>
+      <item>PROTAGONIST_HIMHER</item>
+      <item>PROTAGONIST_HISHER</item>
+      <item>PROTAGONIST_LADYLORD</item>
+      <item>PROTAGONIST_MALEFEMALE</item>
+      <item>PROTAGONIST_MANWOMAN</item>
+      <item>PROTAGONIST_RACE</item>
+      <item>PROTAGONIST_SIRMAAM</item>
+      <item>PRO_BROTHERSISTER</item>
+      <item>PRO_CLASS</item>
+      <item>PRO_GIRLBOY</item>
+      <item>PRO_HESHE</item>
+      <item>PRO_HIMHER</item>
+      <item>PRO_HISHER</item>
+      <item>PRO_LADYLORD</item>
+      <item>PRO_MALEFEMALE</item>
+      <item>PRO_MANWOMAN</item>
+      <item>PRO_MASTERMISTRESS</item>
+      <item>PRO_RACE</item>
+      <item>PRO_SIRMAAM</item>
+      <item>PRO_SONDAUGHTER</item>
+      <item>RACE</item>
+      <item>SIRMAAM</item>
+      <item>SONDAUGHTER</item>
+      <item>SURFACE_UNDERDARK</item>
+      <item>TM</item>
+      <item>YEAR</item>
+    </list>
+
     <list name="diagnostic">
       <include>diagnostic##WeiDU TP2</include>
     </list>
@@ -38,6 +96,7 @@
         <DetectChar attribute="Resref" context="Sound_Resref" char="[" />
       </context>
 
+
       <context name="Line_Comment" attribute="Comment" lineEndContext="#pop">
         <DetectSpaces context="#stay" />
         <keyword attribute="Diagnostic" context="#stay" String="diagnostic" />
@@ -51,6 +110,7 @@
         <DetectIdentifier context="#stay" />
       </context>
 
+
       <context name="Match_String" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectChar attribute="String" context="#pop!String_Quote" char="&quot;" />
         <StringDetect attribute="String" context="#pop!String_5Tildes" String="~~~~~" />
@@ -60,30 +120,61 @@
 
       <context name="String_Quote" attribute="String" lineEndContext="#stay">
         <DetectChar attribute="String" context="#pop" char="&quot;" />
-        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:&quot;]+?&gt;" />
+        <DetectChar attribute="Token" context="Token_Quote" char="&lt;" />
         <RegExpr attribute="Substitution" context="#stay" String="%[^ \t*?:&quot;]+?%" />
         <RegExpr attribute="Colorization" context="Colorization_Quote" String="&startcolorize;" />
       </context>
 
       <context name="String_Tilde" attribute="String" lineEndContext="#stay">
         <DetectChar attribute="String" context="#pop" char="~" />
-        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:~]+?&gt;" />
+        <DetectChar attribute="Token" context="Token_Tilde" char="&lt;" />
         <RegExpr attribute="Substitution" context="#stay" String="%[^ \t*?:~]+?%" />
         <RegExpr attribute="Colorization" context="Colorization_Tilde" String="&startcolorize;" />
       </context>
 
       <context name="String_5Tildes" attribute="String" lineEndContext="#stay">
         <StringDetect attribute="String" context="#pop" String="~~~~~" />
-        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:~]+?&gt;" />
+        <DetectChar attribute="Token" context="Token_5Tildes" char="&lt;" />
         <RegExpr attribute="Substitution" context="#stay" String="%[^ \t*?:~]+?%" />
         <RegExpr attribute="Colorization" context="Colorization_5Tildes" String="&startcolorize;" />
       </context>
 
       <context name="String_Percent" attribute="String" lineEndContext="#stay">
         <DetectChar attribute="String" context="#pop" char="%" />
-        <RegExpr attribute="Token" context="#stay" String="&lt;[^ \t*?:%]+?&gt;" />
+        <DetectChar attribute="Token" context="Token_Percent" char="&lt;" />
         <RegExpr attribute="Colorization" context="Colorization_Percent" String="&startcolorize;" />
       </context>
+
+
+      <context name="Token_Quote" attribute="Token" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Token" context="#pop" char="&gt;" />
+        <AnyChar attribute="Token" context="#pop" String="&quot;&lt;*?" lookAhead="true" />
+        <keyword attribute="Token Constant" context="#stay" String="token" />
+      </context>
+
+      <context name="Token_Tilde" attribute="Token" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Token" context="#pop" char="&gt;" />
+        <AnyChar attribute="Token" context="#pop" String="~&lt;*?" lookAhead="true" />
+        <keyword attribute="Token Constant" context="#stay" String="token" />
+      </context>
+
+      <context name="Token_5Tildes" attribute="Token" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Token" context="#pop" char="&gt;" />
+        <StringDetect attribute="Token" context="#pop" String="~~~~~" lookAhead="true" />
+        <AnyChar attribute="Token" context="#pop" String="&lt;*?" lookAhead="true" />
+        <keyword attribute="Token Constant" context="#stay" String="token" />
+      </context>
+
+      <context name="Token_Percent" attribute="Token" lineEndContext="#pop">
+        <DetectSpaces context="#pop" />
+        <DetectChar attribute="Token" context="#pop" char="&gt;" />
+        <AnyChar attribute="Token" context="#pop" String="%&lt;*?" lookAhead="true" />
+        <keyword attribute="Token Constant" context="#stay" String="token" />
+      </context>
+
 
       <context name="Colorization_Quote" attribute="Colorization" lineEndContext="#stay">
         <Detect2Chars attribute="Colorization" context="#pop" char="^" char1="-" />
@@ -105,6 +196,7 @@
         <DetectChar attribute="String" context="#pop#pop" char="%" />
       </context>
 
+
       <context name="Sound_Resref" attribute="Resref" lineEndContext="#pop">
         <DetectSpaces />
         <DetectChar attribute="Resref" context="#pop" char="]" />
@@ -112,30 +204,32 @@
     </contexts>
 
     <itemDatas>
-      <!-- <itemData name="Normal Text"  defStyleNum="dsNormal"        spellChecking="false" /> -->
-      <!-- <itemData name="Comment"      defStyleNum="dsComment" /> -->
-      <!-- <itemData name="String"       defStyleNum="dsString" /> -->
-      <!-- <itemData name="Substitution" defStyleNum="dsSpecialString" spellChecking="false" /> -->
-      <!-- <itemData name="Symbol"       defStyleNum="dsOperator"      spellChecking="false" /> -->
-      <!-- <itemData name="TraRef"       defStyleNum="dsDataType"      spellChecking="false" /> -->
-      <!-- <itemData name="Token"        defStyleNum="dsChar"          spellChecking="false" /> -->
-      <!-- <itemData name="Colorization" defStyleNum="dsFloat"         spellChecking="false" /> -->
-      <!-- <itemData name="Resref"       defStyleNum="dsExtension"     spellChecking="false" /> -->
-      <!-- <itemData name="Diagnostic"   defStyleNum="dsAlert"         spellChecking="false" /> -->
-      <!-- <itemData name="Error"        defStyleNum="dsError"         spellChecking="false" /> -->
+      <!-- <itemData name="Normal Text"    defStyleNum="dsNormal"        spellChecking="false" /> -->
+      <!-- <itemData name="Comment"        defStyleNum="dsComment" /> -->
+      <!-- <itemData name="String"         defStyleNum="dsString" /> -->
+      <!-- <itemData name="Substitution"   defStyleNum="dsSpecialString" spellChecking="false" /> -->
+      <!-- <itemData name="Symbol"         defStyleNum="dsOperator"      spellChecking="false" /> -->
+      <!-- <itemData name="TraRef"         defStyleNum="dsDataType"      spellChecking="false" /> -->
+      <!-- <itemData name="Token"          defStyleNum="dsChar"          spellChecking="false" /> -->
+      <!-- <itemData name="Token Constant" defStyleNum="dsChar"          spellChecking="false" /> -->
+      <!-- <itemData name="Colorization"   defStyleNum="dsFloat"         spellChecking="false" /> -->
+      <!-- <itemData name="Resref"         defStyleNum="dsExtension"     spellChecking="false" /> -->
+      <!-- <itemData name="Diagnostic"     defStyleNum="dsAlert"         spellChecking="false" /> -->
+      <!-- <itemData name="Error"          defStyleNum="dsError"         spellChecking="false" /> -->
 
       <!-- Emulation of the Notepad++ color scheme for WeiDU files -->
-      <itemData name="Normal Text"  defStyleNum="dsNormal"        color="#FFFFFF"               spellChecking="false" />
-      <itemData name="Comment"      defStyleNum="dsComment"       color="#70A63A" italic="true" />
-      <itemData name="String"       defStyleNum="dsString"        color="#FFCACA" />
-      <itemData name="Substitution" defStyleNum="dsSpecialString" color="#FF4040" italic="true" spellChecking="false" />
-      <itemData name="Symbol"       defStyleNum="dsOperator"      color="#C993FF"               spellChecking="false" />
-      <itemData name="TraRef"       defStyleNum="dsDataType"      color="#7575FF" bold="true"   spellChecking="false" />
-      <itemData name="Token"        defStyleNum="dsChar"          color="#B66CFF"               spellChecking="false" />
-      <itemData name="Colorization" defStyleNum="dsFloat"         color="#E0E0CA"               spellChecking="false" />
-      <itemData name="Resref"       defStyleNum="dsExtension"     color="#6AFF6A" bold="true"   spellChecking="false" />
-      <itemData name="Diagnostic"   defStyleNum="dsAlert"         color="#FF8040" bold="true"   spellChecking="false" />
-      <itemData name="Error"        defStyleNum="dsError"         color="#FF0000" bold="true"   spellChecking="false" />
+      <itemData name="Normal Text"    defStyleNum="dsNormal"        color="#FFFFFF"               spellChecking="false" />
+      <itemData name="Comment"        defStyleNum="dsComment"       color="#70A63A" italic="true" />
+      <itemData name="String"         defStyleNum="dsString"        color="#FFCACA" />
+      <itemData name="Substitution"   defStyleNum="dsSpecialString" color="#FF4040" italic="true" spellChecking="false" />
+      <itemData name="Symbol"         defStyleNum="dsOperator"      color="#C993FF"               spellChecking="false" />
+      <itemData name="TraRef"         defStyleNum="dsDataType"      color="#7575FF" bold="true"   spellChecking="false" />
+      <itemData name="Token"          defStyleNum="dsChar"          color="#B66CFF"               spellChecking="false" />
+      <itemData name="Token Constant" defStyleNum="dsChar"          color="#B66CFF" bold="true"   spellChecking="false" />
+      <itemData name="Colorization"   defStyleNum="dsFloat"         color="#E0E0CA"               spellChecking="false" />
+      <itemData name="Resref"         defStyleNum="dsExtension"     color="#6AFF6A" bold="true"   spellChecking="false" />
+      <itemData name="Diagnostic"     defStyleNum="dsAlert"         color="#FF8040" bold="true"   spellChecking="false" />
+      <itemData name="Error"          defStyleNum="dsError"         color="#FF0000" bold="true"   spellChecking="false" />
     </itemDatas>
   </highlighting>
 
