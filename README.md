@@ -46,5 +46,3 @@ A suitable syntax highlighter is automatically selected if the opened file conta
 - WeiDU TRA: `.tra`. Select menu *Tools > Highlighting > Other > WeiDU TRA* to enable the syntax highlighter manually.
 - WeiDU D: `.d`. Select menu *Tools > Highlighting > Scripts > WeiDU D* to enable the syntax highlighter manually.
 - WeiDU BAF: `.baf`. Select menu *Tools > Highlighting > Scripts > WeiDU BAF* to enable the syntax highlighter manually.
-
-## Changelog
